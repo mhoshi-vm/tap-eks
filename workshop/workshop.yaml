@@ -1,0 +1,21 @@
+name: マルチKubernetesをサポートするVMware Tanzu ~ eks上のアプリケーション開発と運用を効率化
+
+modules:
+    activate:
+    -  platop/section
+    -  platop/01-EnableHandsOn
+    -  platop/02-ConfigureDevNamespace
+    -  platop/03-DeploySampleApp
+    -  platop/04-EnableScanTapGUI
+    -  platop/05-PrepareStk
+    -  platop/06-ServiceBinding
+    -  platop/07-DynamicServiceProvision
+    -  appop/section
+    -  appop/09-PrepareIDE
+    -  appop/10-SimpleWeb
+    -  appop/12-TestScan
+    -  appop/13-DynamicAPIRegister
+    -  appop/14-ServiceBindings
+    -  appop/15-LiveUpdate
+    -  appop/16-GitOps
+    -  appop/17-AppAccelerator

@@ -1,0 +1,36 @@
+name: Publish Templates
+
+on:
+  push:
+    paths:
+      - packages/**
+      - .imgpkg/**
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install carvel
+        shell: bash
+        run: |
+          wget -O- https://carvel.dev/install.sh > /tmp/install.sh
+          chmod +x /tmp/install.sh
+          /tmp/install.sh
+      - name: Calculate variables
+        shell: bash
+        run: |
+          REPOSITORY_NAME=${{github.event.repository.name}}
+          echo "REPOSITORY_NAME=${REPOSITORY_NAME,,}" >>${GITHUB_ENV}
+          echo "REPOSITORY_OWNER=${GITHUB_REPOSITORY_OWNER,,}" >>${GITHUB_ENV}
+          echo "REPOSITORY_TAG=${GITHUB_REF#refs/tags/}" >>${GITHUB_ENV}
+      - name: Build and publish
+        shell: bash
+        run: |
+          imgpkg push -b ghcr.io/${REPOSITORY_OWNER}/${REPOSITORY_NAME} -f ./ --file-exclusion README.md --file-exclusion k8s --file-exclusion dockerfile --file-exclusion conf --file-exclusion workshop --file-exclusion .gitignore --file-exclusion .git --file-exclusion .github  --registry-username=${{github.actor}} --registry-password=${{secrets.GITHUB_TOKEN}}

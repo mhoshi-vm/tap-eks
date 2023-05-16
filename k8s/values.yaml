@@ -1,0 +1,23 @@
+#@data/values-schema
+---
+#@schema/desc "session count"
+sessions: 5
+
+#@schema/desc "domain"
+domain: seminar.tanzu.japan.com
+
+#@schema/desc "hostname"
+hostname: tap-eks
+
+#@schema/desc "tanzunet token"
+tanzunet: "" 
+
+#@schema/desc "tap version"
+tapversion: "1.5.1"
+
+#@schema/desc "TLS config"
+tls:
+  enabled: false
+  crt: dummy
+  key: dummy
+  

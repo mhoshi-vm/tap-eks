@@ -1,10 +1,12 @@
-FROM registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:a8870aa60b45495d298df5b65c69b3d7972608da4367bd6e69d6e392ac969dd4
+
+# kubectl get ds -n learningcenter learningcenter-prepull -o=jsonpath="{.spec.template.spec.initContainers[0].image}"
+FROM registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:39a5afe9604b9a36c14deda351ab73b53d15bd53085d89829838671cb867f6c4
 
 # All the direct Downloads need to run as root as they are going to /usr/local/bin
 USER root
 
 # Visual Studio Code Extentions
-ENV CS_VERSION=4.12.0
+ENV CS_VERSION=4.17.0
 RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version=${CS_VERSION}
 RUN cp -rf /usr/lib/code-server/* /opt/code-server/
 RUN rm -rf /usr/lib/code-server /usr/bin/code-server
@@ -34,7 +36,8 @@ RUN sudo apt-get update && sudo apt-get install --no-install-recommends -y \
     jq \
     curl \
     unzip \
-    wget 
+    wget  \
+    golang
 
 # Liberica JDK
 ENV JDK_VERSION=17.0.7+7
@@ -55,7 +58,7 @@ RUN wget -q https://github.com/vmware-tanzu/tanzu-framework/releases/download/v$
     tanzu plugin install --local cli all && \
     rm -fr tanzu-framework* cli
 
-ENV TANZU_APPS_CLI_PLUGIN_VERSION=0.11.1
+ENV TANZU_APPS_CLI_PLUGIN_VERSION=0.12.1
 RUN wget -q https://github.com/vmware-tanzu/apps-cli-plugin/releases/download/v${TANZU_APPS_CLI_PLUGIN_VERSION}/tanzu-apps-plugin-linux-amd64-v${TANZU_APPS_CLI_PLUGIN_VERSION}.tar.gz && \
     mkdir tanzu-apps-plugin && \
     tar xzvf tanzu-apps-plugin-linux-amd64-v${TANZU_APPS_CLI_PLUGIN_VERSION}.tar.gz -C tanzu-apps-plugin && \
@@ -63,7 +66,7 @@ RUN wget -q https://github.com/vmware-tanzu/apps-cli-plugin/releases/download/v$
     rm -fr tanzu-apps-plugin*
 
 # Maven
-ENV MAVEN_VERSION=3.9.2
+ENV MAVEN_VERSION=3.9.4
 RUN wget -q -O maven.tar.gz http://ftp.riken.jp/net/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz && \
     tar xzf maven.tar.gz && \
     sudo mv apache-maven-* /opt/ && \
@@ -73,7 +76,7 @@ RUN wget -q -O maven.tar.gz http://ftp.riken.jp/net/apache/maven/maven-3/${MAVEN
 RUN chmod +x /etc/profile.d/01-maven.sh
 
 # Kubectl
-ENV KUBECTL_VERSION 1.27.1
+ENV KUBECTL_VERSION 1.27.6
 RUN wget -q -O kubectl "https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" && \
     sudo install kubectl /usr/local/bin/ && \
     rm -f kubectl*
@@ -82,7 +85,7 @@ RUN wget -q -O kubectl "https://storage.googleapis.com/kubernetes-release/releas
 RUN wget -O- https://carvel.dev/install.sh | bash
 
 # Tilt
-ENV TILT_VERSION=0.32.3
+ENV TILT_VERSION=0.33.5
 RUN wget -q -O tilt.tar.gz https://github.com/tilt-dev/tilt/releases/download/v${TILT_VERSION}/tilt.${TILT_VERSION}.linux.x86_64.tar.gz && \
     tar xzf tilt.tar.gz && \
     sudo install tilt /usr/local/bin/ && \
@@ -94,13 +97,6 @@ RUN wget -q -O pivnet https://github.com/pivotal-cf/pivnet-cli/releases/download
     sudo install pivnet /usr/local/bin/ && \
     rm -f pivnet*
 
-# oc command
-ENV OC_VERSION=4.12.0-0.okd-2023-04-16-041331
-RUN wget https://github.com/okd-project/okd/releases/download/${OC_VERSION}/openshift-client-linux-${OC_VERSION}.tar.gz && \
-    tar xzvf openshift-client-linux-${OC_VERSION}.tar.gz && \
-    sudo install oc /usr/local/bin/ && \
-    rm kubectl  oc  openshift-client-linux-${OC_VERSION}.tar.gz
-
 RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null && \
     tanzu completion bash | sudo tee /etc/bash_completion.d/tanzu > /dev/null && \
     ytt completion bash | sudo tee /etc/bash_completion.d/ytt > /dev/null && \
@@ -111,33 +107,19 @@ RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/nul
 
 RUN rm -f LICENSE README.md
 
-# Download tanzu net tools
-ENV TAP_VERSION=1.5.1
-RUN --mount=type=secret,id=pivnet export TANZUNET_TOKEN="$(cat /run/secrets/pivnet)" && \
-    pivnet login --api-token=${TANZUNET_TOKEN}  && \
-    pivnet download-product-files --product-slug='tanzu-application-platform' --release-version=${TAP_VERSION} --glob='*.vsix' -d /home/eduk8s && \
-    pivnet download-product-files --product-slug='tanzu-application-platform' --release-version=${TAP_VERSION} --glob='tanzu-framework-linux-amd64-*.tar' -d /home/eduk8s
+COPY conf/supervisor-editor.conf /opt/eduk8s/etc/supervisor/editor.conf
+RUN rm /opt/eduk8s/.bash_profile
+COPY conf/install-from-tanzunet.sh /home/eduk8s/install-from-tanzunet.sh
+RUN chmod +x /home/eduk8s/install-from-tanzunet.sh
 
+# workaround
 RUN chown 1001:1001 -R /home/eduk8s
-
-# install tanzu net tools
-USER 1001
-ENV VSCODE_USER /home/eduk8s/.local/share/code-server/User
-ENV VSCODE_EXTENSIONS /home/eduk8s/.local/share/code-server/extensions
-RUN set +x && \
-    for vsix in $(ls *.vsix);do \
-        code-server --install-extension ${vsix} ; \
-    done && \
-    rm -f *.vsix && \
-    export TANZU_CLI_NO_INIT=true && \
-    tar xvf tanzu-framework-*.tar && \
-    mkdir -p $HOME/.local/bin && \
-    install cli/core/*/tanzu-core-*_amd64 $HOME/.local/bin/tanzu && \
-    $HOME/.local/bin/tanzu plugin install --local cli all && \
-    rm -f tanzu-framework-*.tar && \
-    rm -rf cli 
+RUN chsh eduk8s -s /bin/bash
+ENV PATH="/home/eduk8s/.local/bin:/usr/local/bin:$PATH"
+RUN go install -v golang.org/x/tools/gopls@latest
 
 # cleanup
+USER 1001
 RUN mkdir -p ${VSCODE_USER} && echo "{\"java.home\":\"$(dirname /opt/jdk-*/bin/)\",\"maven.terminal.useJavaHome\":true, \"maven.executable.path\":\"/opt/apache-maven-${MAVEN_VERSION}/bin/mvn\",\"spring-boot.ls.java.home\":\"$(dirname /opt/jdk-*/bin/)\",\"files.exclude\":{\"**/.classpath\":true,\"**/.project\":true,\"**/.settings\":true,\"**/.factorypath\":true},\"redhat.telemetry.enabled\":false,\"java.server.launchMode\": \"Standard\"}" | jq . > ${VSCODE_USER}/settings.json
 RUN rm -f /home/eduk8s/.wget-hsts
 RUN fix-permissions /home/eduk8s

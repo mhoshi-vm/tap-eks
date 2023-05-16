@@ -1,0 +1,20 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: TrainingPortal
+metadata:
+  name: #@ data.values.hostname
+spec:
+  portal:
+    ingress:
+      hostname: #@ data.values.hostname
+      domain: #@ data.values.domain
+      #@ if/end data.values.tls.enabled:
+      secret: #@ data.values.domain + "-tls"
+    reserved: #@ data.values.sessions
+    sessions:
+      maximum: #@ data.values.sessions
+  workshops:
+  - expires: 240m
+    name: tap-eks
+    orphaned: 240m

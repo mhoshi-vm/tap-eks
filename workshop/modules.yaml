@@ -1,0 +1,54 @@
+modules:
+  platop/section:
+    name: For Platform Operator 編
+    exit_sign: 次のコンテンツ
+  platop/01-EnableHandsOn:
+    name: (全) ハンズオン作業環境の有効化（Learning Center）
+    exit_sign: 次のコンテンツ
+  platop/02-ConfigureDevNamespace:
+    name: (全) Developer Namespaceの作成
+    exit_sign: 次のコンテンツ
+  platop/03-DeploySampleApp:
+    name: (全) サンプルアプリケーションのデプロイ
+    exit_sign: 次のコンテンツ
+  platop/04-EnableScanTapGUI:
+    name: (個) TAP-GUI のスキャニングの有効化
+    exit_sign: 次のコンテンツ
+  platop/05-PrepareStk:
+    name: (個) Services Toolkit の準備
+    exit_sign: 次のコンテンツ
+  platop/06-ServiceBinding:
+    name: (全) Service Bindings の稼働検証
+    exit_sign: 次のコンテンツ
+  platop/07-DynamicServiceProvision:
+    name: (全) Service Toolkit 動的プロビジョン機能の利用
+    exit_sign: 次のコンテンツ
+  appop/section:
+    name: For App Operator 編
+    exit_sign: 次のコンテンツ
+  appop/09-PrepareIDE:
+    name: (全) IDEのセットアップ(VSCode Server)
+    exit_sign: 次のコンテンツ
+  appop/10-SimpleWeb:
+    name: (全) シンプルなWebアプリケーションのデプロイ
+    exit_sign: 次のコンテンツ
+  appop/11-Functions:
+    name: (全) Functionアプリケーションのデプロイ
+    exit_sign: 次のコンテンツ
+  appop/12-TestScan:
+    name: (全) テスト & スキャンのスクリプトの登録
+    exit_sign: 次のコンテンツ
+  appop/13-DynamicAPIRegister:
+    name: (全) 動的API登録の確認
+    exit_sign: 次のコンテンツ
+  appop/14-ServiceBindings:
+    name: (全) Service Bindings 連携の確認
+    exit_sign: 次のコンテンツ
+  appop/15-LiveUpdate:
+    name: (全) LiveUpdateによる高速Iteration
+    exit_sign: 次のコンテンツ
+  appop/16-GitOps:
+    name: (個) GitOps モードのデプロイ
+    exit_sign: 次のコンテンツ
+  appop/17-AppAccelerator:
+    name: (個) Application Accelerator を登録し、開発者に公開

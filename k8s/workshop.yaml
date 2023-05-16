@@ -1,0 +1,45 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: Workshop
+metadata:
+  name: tap-eks
+spec:
+  title: TAP for Plat/App Operators
+  description: TAP for Plat/App Operators
+  url: https://github.com/mhoshi-vm/tap-eks-jp
+  content:
+    image: ghcr.io/mhoshi-vm/tap-eks-lc:latest
+    files: github.com/mhoshi-vm/tap-eks-jp?ref=main
+  session:
+    env:
+    - name: TANZUNET_TOKEN
+      value: #@ data.values.tanzunet
+    - name: TAP_VERSION
+      value: #@ data.values.tapversion
+    patches:
+      containers:
+      - name: workshop
+        resources:
+          requests:
+            cpu: 0.5
+    applications:
+      editor:
+        enabled: true
+        layout: lower
+      terminal:
+        enabled: true
+        layout: default
+    objects:
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: ClusterRoleBinding
+        metadata:
+          name: $(session_namespace)-workshop-read-crb
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: cluster-admin
+        subjects:
+          - kind: ServiceAccount
+            namespace: $(workshop_namespace)
+            name: $(service_account)
