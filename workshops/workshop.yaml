@@ -1,0 +1,5 @@
+name: TAP on OpenShift Seminar
+
+modules:
+    activate:
+    - playground

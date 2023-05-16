@@ -1,0 +1,9 @@
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: Workshop
+metadata:
+  name: tap-openshift
+spec:
+  title: TAP on OpenShift
+  description: TAP on OpenShift seminar
+  content:
+    files: https://github.com/mhoshi-vm/tap-openshift-jp/workshop

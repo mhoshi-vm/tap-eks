@@ -111,31 +111,7 @@ RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/nul
 
 RUN rm -f LICENSE README.md
 
-# Download tanzu net tools
-ENV TAP_VERSION=1.5.1
-RUN --mount=type=secret,id=pivnet export TANZUNET_TOKEN="$(cat /run/secrets/pivnet)" && \
-    pivnet login --api-token=${TANZUNET_TOKEN}  && \
-    pivnet download-product-files --product-slug='tanzu-application-platform' --release-version=${TAP_VERSION} --glob='*.vsix' -d /home/eduk8s && \
-    pivnet download-product-files --product-slug='tanzu-application-platform' --release-version=${TAP_VERSION} --glob='tanzu-framework-linux-amd64-*.tar' -d /home/eduk8s
-
-RUN chown 1001:1001 -R /home/eduk8s
-
-# install tanzu net tools
-USER 1001
-ENV VSCODE_USER /home/eduk8s/.local/share/code-server/User
-ENV VSCODE_EXTENSIONS /home/eduk8s/.local/share/code-server/extensions
-RUN set +x && \
-    for vsix in $(ls *.vsix);do \
-        code-server --install-extension ${vsix} ; \
-    done && \
-    rm -f *.vsix && \
-    export TANZU_CLI_NO_INIT=true && \
-    tar xvf tanzu-framework-*.tar && \
-    mkdir -p $HOME/.local/bin && \
-    install cli/core/*/tanzu-core-*_amd64 $HOME/.local/bin/tanzu && \
-    $HOME/.local/bin/tanzu plugin install --local cli all && \
-    rm -f tanzu-framework-*.tar && \
-    rm -rf cli 
+COPY install-from-tanzunet.sh /home/eduk8s/
 
 # cleanup
 RUN mkdir -p ${VSCODE_USER} && echo "{\"java.home\":\"$(dirname /opt/jdk-*/bin/)\",\"maven.terminal.useJavaHome\":true, \"maven.executable.path\":\"/opt/apache-maven-${MAVEN_VERSION}/bin/mvn\",\"spring-boot.ls.java.home\":\"$(dirname /opt/jdk-*/bin/)\",\"files.exclude\":{\"**/.classpath\":true,\"**/.project\":true,\"**/.settings\":true,\"**/.factorypath\":true},\"redhat.telemetry.enabled\":false,\"java.server.launchMode\": \"Standard\"}" | jq . > ${VSCODE_USER}/settings.json
