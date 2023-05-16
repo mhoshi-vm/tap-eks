@@ -3,8 +3,20 @@
 apiVersion: learningcenter.tanzu.vmware.com/v1beta1
 kind: SystemProfile
 metadata:
-  name: default-system-profile
+  name: tap-openshift-profile
 spec:
   workshop:
     images:
-      "base-environment:*": #@ data.values.image
+      "base-environment:*": ghcr.io/mhoshi-vm/tap-openshift-lc-image
+  ingress:
+    domain: #@ data.values.domain
+  network:
+    blockCIDRs:
+    - 169.254.169.254/32
+    - fd00:ec2::254/128
+  portal:
+    credentials:
+      admin:
+        username: learningcenter
+      robot:
+        username: robot@learningcenter

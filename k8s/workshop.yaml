@@ -5,5 +5,17 @@ metadata:
 spec:
   title: TAP on OpenShift
   description: TAP on OpenShift seminar
+  url: https://github.com/mhoshi-vm/tap-openshift-jp
   content:
-    files: https://github.com/mhoshi-vm/tap-openshift-jp/workshop
+    image: ghcr.io/mhoshi-vm/tap-openshift-lc-image
+  session:
+    applications:
+      console:
+        enabled: true
+      docker:
+        enabled: true
+      editor:
+        enabled: true
+      terminal:
+        enabled: true
+        layout: split

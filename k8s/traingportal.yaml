@@ -1,0 +1,21 @@
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: TrainingPortal
+metadata:
+  name: tap-openshift
+spec:
+  system:
+    profile: tap-openshift-profile
+  portal:
+    ingress:
+      hostname: tap-openshift
+    registration:
+      type: anonymous
+    reserved: 0
+    sessions:
+      maximum: 5
+    updates:
+      workshop: true
+  workshops:
+  - expires: 240m
+    name: tap-openshift
+    orphaned: 240m
