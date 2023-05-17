@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+
 apiVersion: learningcenter.tanzu.vmware.com/v1beta1
 kind: TrainingPortal
 metadata:
@@ -10,7 +12,7 @@ spec:
       type: anonymous
     reserved: 0
     sessions:
-      maximum: 25
+      maximum: #@ data.values.sessions
     updates:
       workshop: true
   workshops:
