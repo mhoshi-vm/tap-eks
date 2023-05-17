@@ -1,13 +1,13 @@
-FROM registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:a8870aa60b45495d298df5b65c69b3d7972608da4367bd6e69d6e392ac969dd4
+FROM registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:c184e9399d2385807833be0a9f1718c40caa142b6e1c3ddf64fa969716dcd4e3
 
-# All the direct Downloads need to run as root as they are going to /usr/local/bin
-USER root
-
-# Visual Studio Code Extentions
-ENV CS_VERSION=4.12.0
-RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version=${CS_VERSION}
-RUN cp -rf /usr/lib/code-server/* /opt/code-server/
-RUN rm -rf /usr/lib/code-server /usr/bin/code-server
+# # All the direct Downloads need to run as root as they are going to /usr/local/bin
+# USER root
+# 
+# # Visual Studio Code Extentions
+# ENV CS_VERSION=4.12.0
+# RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version=${CS_VERSION}
+# RUN cp -rf /usr/lib/code-server/* /opt/code-server/
+# RUN rm -rf /usr/lib/code-server /usr/bin/code-server
 
 USER 1001
 
