@@ -5,6 +5,14 @@ metadata:
 spec:
   refName: tap-openshift.tanzu.japan.com
   version: 1.5.1
+  valuesSchema:
+    openAPIv3:
+      title: tap-openshift.tanzu-jp values schema
+      properties:
+        sessions:
+          type: integer
+          description: session count
+          default: 5
   template:
     spec:
       fetch:
