@@ -10,7 +10,7 @@ spec:
   url: https://github.com/mhoshi-vm/tap-openshift-jp
   content:
     image: ghcr.io/mhoshi-vm/tap-openshift-lc:latest
-    files: https://github.com/mhoshi-vm/tap-openshift-jp/workshop
+    files: github.com/mhoshi-vm/tap-openshift-jp?ref=main
   session:
     applications:
       editor:
@@ -18,9 +18,6 @@ spec:
       terminal:
         enabled: true
         layout: split
-    dashboards:
-    - name: TAP_GUI
-      url: #@ data.values.tapgui
     objects:
       - apiVersion: rbac.authorization.k8s.io/v1
         kind: ClusterRoleBinding
