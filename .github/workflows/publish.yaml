@@ -2,8 +2,8 @@ name: Publish Templates
 
 on:
   push:
-    brach:
-      - main
+    paths:
+      - packages/**
 
 jobs:
   publish:
