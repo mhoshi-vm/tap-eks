@@ -3,13 +3,13 @@
 FROM registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:c184e9399d2385807833be0a9f1718c40caa142b6e1c3ddf64fa969716dcd4e3
 
 # # All the direct Downloads need to run as root as they are going to /usr/local/bin
-# USER root
-# 
-# # Visual Studio Code Extentions
-# ENV CS_VERSION=4.12.0
-# RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version=${CS_VERSION}
-# RUN cp -rf /usr/lib/code-server/* /opt/code-server/
-# RUN rm -rf /usr/lib/code-server /usr/bin/code-server
+USER root
+
+# Visual Studio Code Extentions
+ENV CS_VERSION=4.12.0
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version=${CS_VERSION}
+RUN cp -rf /usr/lib/code-server/* /opt/code-server/
+RUN rm -rf /usr/lib/code-server /usr/bin/code-server
 
 USER 1001
 
@@ -113,14 +113,15 @@ RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/nul
 
 RUN rm -f LICENSE README.md
 
-COPY conf/install-from-tanzunet.sh /home/eduk8s/
 COPY conf/supervisor-editor.conf /opt/eduk8s/etc/supervisor/editor.conf
-RUN echo "echo 'Please update /opt/code-server/kubeconfig file for kubectl to work'" > /home/eduk8s/.bashrc
-
+RUN rm /opt/eduk8s/.bash_profile
+COPY conf/install-from-tanzunet.sh /home/eduk8s/.bashrc
+RUN chmod +x /home/eduk8s/.bashrc
 
 # workaround
 RUN update-alternatives --set iptables /usr/sbin/iptables-legacy
 RUN chown 1001:1001 -R /home/eduk8s
+ENV PATH="/usr/local/bin:$PATH"
 
 # cleanup
 USER 1001

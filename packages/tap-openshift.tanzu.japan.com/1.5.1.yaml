@@ -21,10 +21,10 @@ spec:
           type: string
           description: hostname
           default: tap-openshift
-        tapgui:
+        tanzunet:
           type: string
-          description: tap gui url
-          default: https://tap-gui.tanzu.japan.com
+          description: tanzunet token
+          default: ""
         tls:
           type: object
           additionalProperties: false

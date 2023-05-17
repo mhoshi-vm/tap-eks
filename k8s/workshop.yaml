@@ -12,9 +12,13 @@ spec:
     image: ghcr.io/mhoshi-vm/tap-openshift-lc:latest
     files: github.com/mhoshi-vm/tap-openshift-jp?ref=main
   session:
+    env:
+    - name: TANZUNET_TOKEN
+      value: #@ data.values.tanzunet
     applications:
       editor:
         enabled: true
+        layout: lower
       terminal:
         enabled: true
         layout: split

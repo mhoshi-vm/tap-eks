@@ -4,9 +4,6 @@ apiVersion: learningcenter.tanzu.vmware.com/v1beta1
 kind: TrainingPortal
 metadata:
   name: #@ data.values.hostname
-  annotations:
-    kapp.k14s.io/update-strategy: "always-replace"
-    kapp.k14s.io/renew-duration: "10s"
 spec:
   portal:
     ingress:

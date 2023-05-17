@@ -9,8 +9,10 @@ domain: seminar.tanzu.japan.com
 #@schema/desc "hostname"
 hostname: tap-openshift
 
-#@schema/desc "tap gui url"
-tapgui:  https://tap-gui.tanzu.japan.com
+#@schema/desc "tanzunet token"
+tanzunet: "" 
+
+
 
 #@schema/desc "TLS config"
 tls:
