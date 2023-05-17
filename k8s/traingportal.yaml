@@ -4,6 +4,9 @@ apiVersion: learningcenter.tanzu.vmware.com/v1beta1
 kind: TrainingPortal
 metadata:
   name: #@ data.values.hostname
+  annotations:
+    kapp.k14s.io/update-strategy: "always-replace"
+    kapp.k14s.io/renew-duration: "10s"
 spec:
   portal:
     ingress:
@@ -11,13 +14,9 @@ spec:
       domain: #@ data.values.domain
       #@ if/end data.values.tls.enabled:
       secret: #@ data.values.domain + "-tls"
-    registration:
-      type: anonymous
-    reserved: 0
+    reserved: #@ data.values.sessions
     sessions:
       maximum: #@ data.values.sessions
-    updates:
-      workshop: true
   workshops:
   - expires: 240m
     name: tap-openshift
