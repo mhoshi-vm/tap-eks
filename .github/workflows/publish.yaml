@@ -33,4 +33,4 @@ jobs:
       - name: Build and publish
         shell: bash
         run: |
-          imgpkg push -b ghcr.io/${REPOSITORY_OWNER}/${REPOSITORY_NAME} -f ./ --file-exclusion README.md --file-exclusion k8s --file-exclusion dockefile --file-exclusion conf --file-exclusion workshop --file-exclusion .gitignore --file-exclusion .git --file-exclusion .github  --registry-username=${{github.actor}} --registry-password=${{secrets.GITHUB_TOKEN}}
+          imgpkg push -b ghcr.io/${REPOSITORY_OWNER}/${REPOSITORY_NAME} -f ./ --file-exclusion README.md --file-exclusion k8s --file-exclusion dockerfile --file-exclusion conf --file-exclusion workshop --file-exclusion .gitignore --file-exclusion .git --file-exclusion .github  --registry-username=${{github.actor}} --registry-password=${{secrets.GITHUB_TOKEN}}
