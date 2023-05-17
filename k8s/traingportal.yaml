@@ -3,8 +3,6 @@ kind: TrainingPortal
 metadata:
   name: tap-openshift
 spec:
-  system:
-    profile: tap-openshift-profile
   portal:
     ingress:
       hostname: tap-openshift
@@ -12,7 +10,7 @@ spec:
       type: anonymous
     reserved: 0
     sessions:
-      maximum: 5
+      maximum: 25
     updates:
       workshop: true
   workshops:

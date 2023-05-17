@@ -7,15 +7,27 @@ spec:
   description: TAP on OpenShift seminar
   url: https://github.com/mhoshi-vm/tap-openshift-jp
   content:
-    image: ghcr.io/mhoshi-vm/tap-openshift-lc-image
+    image: ghcr.io/mhoshi-vm/tap-openshift-lc:latest
+    files: https://github.com/mhoshi-vm/tap-openshift-jp/workshop
   session:
     applications:
-      console:
-        enabled: true
-      docker:
-        enabled: true
       editor:
         enabled: true
       terminal:
         enabled: true
         layout: split
+    objects:
+     # Permissions for workshop
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: ClusterRoleBinding
+        metadata:
+          name: $(session_namespace)-workshop-read-crb
+          namespace: $(session_namespace)
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: cluster-admin
+        subjects:
+          - kind: ServiceAccount
+            namespace: $(workshop_namespace)
+            name: $(service_account)

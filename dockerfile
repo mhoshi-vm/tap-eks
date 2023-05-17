@@ -111,9 +111,17 @@ RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/nul
 
 RUN rm -f LICENSE README.md
 
-COPY install-from-tanzunet.sh /home/eduk8s/
+COPY conf/install-from-tanzunet.sh /home/eduk8s/
+COPY conf/supervisor-editor.conf /opt/eduk8s/etc/supervisor/editor.conf
+RUN echo "echo 'Please update /opt/code-server/kubeconfig file for kubectl to work'" > /home/eduk8s/.bashrc
+
+
+# workaround
+RUN update-alternatives --set iptables /usr/sbin/iptables-legacy
+RUN chown 1001:1001 -R /home/eduk8s
 
 # cleanup
+USER 1001
 RUN mkdir -p ${VSCODE_USER} && echo "{\"java.home\":\"$(dirname /opt/jdk-*/bin/)\",\"maven.terminal.useJavaHome\":true, \"maven.executable.path\":\"/opt/apache-maven-${MAVEN_VERSION}/bin/mvn\",\"spring-boot.ls.java.home\":\"$(dirname /opt/jdk-*/bin/)\",\"files.exclude\":{\"**/.classpath\":true,\"**/.project\":true,\"**/.settings\":true,\"**/.factorypath\":true},\"redhat.telemetry.enabled\":false,\"java.server.launchMode\": \"Standard\"}" | jq . > ${VSCODE_USER}/settings.json
 RUN rm -f /home/eduk8s/.wget-hsts
 RUN fix-permissions /home/eduk8s
