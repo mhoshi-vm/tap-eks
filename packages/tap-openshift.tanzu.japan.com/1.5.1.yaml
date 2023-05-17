@@ -18,8 +18,8 @@ spec:
       fetch:
       - git:
           url: https://github.com/mhoshi-vm/tap-openshift
-          ref: origin/pkgr
-          subPath: k8s/
+          ref: origin/main
+          subPath: k8s
       template:
       - ytt: {}
       deploy:
