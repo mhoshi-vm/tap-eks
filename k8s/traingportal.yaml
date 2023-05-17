@@ -3,11 +3,13 @@
 apiVersion: learningcenter.tanzu.vmware.com/v1beta1
 kind: TrainingPortal
 metadata:
-  name: tap-openshift
+  name: #@ data.values.hostname
 spec:
   portal:
     ingress:
-      hostname: tap-openshift
+      hostname: #@ data.values.hostname
+      domain: #@ data.values.domain
+      secret: #@ data.values.domain + "-tls"
     registration:
       type: anonymous
     reserved: 0

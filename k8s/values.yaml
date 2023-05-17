@@ -2,3 +2,9 @@
 ---
 #@schema/desc "session count"
 sessions: 5
+
+#@schema/desc "domain"
+domain: seminar.tap01.cl01.lespaulstudioplus.info
+
+#@schema/desc "hostname"
+hostname: tap-openshift
