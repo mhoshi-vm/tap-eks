@@ -1,39 +1,16 @@
 #@ load("@ytt:data", "data")
+#@ load("@ytt:base64", "base64")
 
-#@ wildcard = "*." + data.values.domain
-#@ wildcard_array = [ wildcard ]
-#@ namespace = "learningcenter"
-
+#@ if data.values.tls.enabled:
+#@overlay/append
 ---
 apiVersion: v1
-kind: Namespace
+data:
+  tls.crt: #@ base64.encode(data.values.tls.crt)
+  tls.key: #@ base64.encode(data.values.tls.key)
+kind: Secret
 metadata:
-  name: #@ namespace
-  annotations:
-    kapp.k14s.io/exists: ""
-    kapp.k14s.io/change-group: "portal"
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: tap-openshift-issuer
-  namespace: #@ namespace
-  annotations:
-    kapp.k14s.io/change-rule: "upsert after upserting portal"
-spec:
-  selfSigned: {}
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: tap-openshift-issuer-cert
-  namespace: #@ namespace
-  annotations:
-    kapp.k14s.io/change-rule: "upsert after upserting portal"
-spec:
-  secretName: #@ data.values.domain + "-tls"
-  issuerRef: 
-    kind: Issuer
-    name: tap-openshift-issuer
-  commonName: #@ wildcard
-  dnsNames: #@ wildcard_array
+  name: #@ data.values.domain + "-tls"
+  namespace: learningcenter
+type: kubernetes.io/tls
+#@ end

@@ -9,6 +9,7 @@ spec:
     ingress:
       hostname: #@ data.values.hostname
       domain: #@ data.values.domain
+      #@ if/end data.values.tls.enabled:
       secret: #@ data.values.domain + "-tls"
     registration:
       type: anonymous

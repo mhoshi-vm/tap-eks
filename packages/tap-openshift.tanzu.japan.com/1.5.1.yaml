@@ -13,6 +13,32 @@ spec:
           type: integer
           description: session count
           default: 5
+        domain:
+          type: string
+          description: domain
+          default: seminar.tanzu.japan.com
+        hostname:
+          type: string
+          description: hostname
+          default: tap-openshift
+        tapgui:
+          type: string
+          description: tap gui url
+          default: https://tap-gui.tanzu.japan.com
+        tls:
+          type: object
+          additionalProperties: false
+          description: TLS config
+          properties:
+            enabled:
+              type: boolean
+              default: false
+            crt:
+              type: string
+              default: dummy
+            key:
+              type: string
+              default: dummy
   template:
     spec:
       fetch:

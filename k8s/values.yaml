@@ -4,7 +4,17 @@
 sessions: 5
 
 #@schema/desc "domain"
-domain: seminar.tap01.cl01.lespaulstudioplus.info
+domain: seminar.tanzu.japan.com
 
 #@schema/desc "hostname"
 hostname: tap-openshift
+
+#@schema/desc "tap gui url"
+tapgui:  https://tap-gui.tanzu.japan.com
+
+#@schema/desc "TLS config"
+tls:
+  enabled: false
+  crt: dummy
+  key: dummy
+  
