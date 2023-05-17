@@ -17,7 +17,7 @@ spec:
     spec:
       fetch:
       - git:
-          url: https://github.com/mhoshi-vm/tap-openshift
+          url: https://github.com/mhoshi-vm/tap-openshift-jp
           ref: origin/main
           subPath: k8s
       template:
