@@ -12,7 +12,8 @@ hostname: tap-openshift
 #@schema/desc "tanzunet token"
 tanzunet: "" 
 
-
+#@schema/desc "tap version"
+tapversion: "1.5.1"
 
 #@schema/desc "TLS config"
 tls:

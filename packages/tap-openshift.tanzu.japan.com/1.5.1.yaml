@@ -25,6 +25,10 @@ spec:
           type: string
           description: tanzunet token
           default: ""
+        tapversion:
+          type: string
+          description: tap version
+          default: 1.5.1
         tls:
           type: object
           additionalProperties: false

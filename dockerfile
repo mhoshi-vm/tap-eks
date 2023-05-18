@@ -115,12 +115,11 @@ RUN rm -f LICENSE README.md
 
 COPY conf/supervisor-editor.conf /opt/eduk8s/etc/supervisor/editor.conf
 RUN rm /opt/eduk8s/.bash_profile
-COPY conf/install-from-tanzunet.sh /home/eduk8s/.bashrc
-RUN chmod +x /home/eduk8s/.bashrc
+COPY conf/install-from-tanzunet.sh /home/eduk8s/install-from-tanzunet.sh
 
 # workaround
-RUN update-alternatives --set iptables /usr/sbin/iptables-legacy
 RUN chown 1001:1001 -R /home/eduk8s
+RUN chsh eduk8s -s /bin/bash
 ENV PATH="/usr/local/bin:$PATH"
 
 # cleanup
