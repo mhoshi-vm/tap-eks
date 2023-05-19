@@ -1,31 +1,45 @@
 modules:
   platop/01-InstallSupplyChainBasic:
     name: SupplyChain Basic の有効化
+    exit_sign: 次のコンテンツ
   platop/02-ConfigureDevNamespace:
     name: Developer ネームスペースの作成
+    exit_sign: 次のコンテンツ
   platop/03-DeploySampleApp:
     name: サンプルアプリケーションのデプロイ
+    exit_sign: 次のコンテンツ
   platop/04-PrepareStk:
     name: Services Toolkit の準備
+    exit_sign: 次のコンテンツ
   platop/05-ServiceBinding:
     name: Service Bindings の稼働検証
+    exit_sign: 次のコンテンツ
   platop/06-DynamicServiceProvision:
     name: サービスの動的プロビジョニング
+    exit_sign: 次のコンテンツ
   appop/00-PrepareIDE:
     name: IDEのセットアップ
+    exit_sign: 次のコンテンツ
   appop/01-SimpleWeb:
     name: シンプルなWebアプリケーションのデプロイ
+    exit_sign: 次のコンテンツ
   appop/02-Functions:
     name: Functionアプリケーションのデプロイ
+    exit_sign: 次のコンテンツ
   appop/03-TestScan:
     name: テスト & スキャンのスクリプトの登録
+    exit_sign: 次のコンテンツ
   appop/04-DynamicAPIRegister:
     name: 動的API登録の確認
+    exit_sign: 次のコンテンツ
   appop/05-ServiceBindings:
     name: Service Bindings 連携の確認
+    exit_sign: 次のコンテンツ
   appop/06-LiveUpdate:
     name: LiveUpdateによる高速Iteration
+    exit_sign: 次のコンテンツ
   appop/08-GitOps:
     name: GitOpsモードのデプロイ
+    exit_sign: 次のコンテンツ
   appop/07-AppAccelerator:
     name: Acceleratorとして開発者に公開
