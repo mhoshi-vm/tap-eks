@@ -1,3 +1,31 @@
 modules:
-    playground:
-        name: playground
+  platop/01-InstallSupplyChainBasic:
+    name: SupplyChain Basic の有効化
+  platop/02-ConfigureDevNamespace:
+    name: Developer ネームスペースの作成
+  platop/03-DeploySampleApp:
+    name: サンプルアプリケーションのデプロイ
+  platop/04-PrepareStk:
+    name: Services Toolkit の準備
+  platop/05-ServiceBinding:
+    name: Service Bindings の稼働検証
+  platop/06-DynamicServiceProvision:
+    name: サービスの動的プロビジョニング
+  appop/00-PrepareIDE:
+    name: IDEのセットアップ
+  appop/01-SimpleWeb:
+    name: シンプルなWebアプリケーションのデプロイ
+  appop/02-Functions:
+    name: Functionアプリケーションのデプロイ
+  appop/03-TestScan:
+    name: テスト & スキャンのスクリプトの登録
+  appop/04-DynamicAPIRegister:
+    name: 動的API登録の確認
+  appop/05-ServiceBindings:
+    name: Service Bindings 連携の確認
+  appop/06-LiveUpdate:
+    name: LiveUpdateによる高速Iteration
+  appop/08-GitOps:
+    name: GitOpsモードのデプロイ
+  appop/07-AppAccelerator:
+    name: Acceleratorとして開発者に公開

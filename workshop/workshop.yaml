@@ -1,5 +1,19 @@
-name: TAP on OpenShift Seminar
+name: マルチKubernetesをサポートするVMware Tanzu ~ OpenShift上のアプリケーション開発と運用を効率化
 
 modules:
     activate:
-    - playground
+    - platop/01-InstallSupplyChainBasic
+    - platop/02-ConfigureDevNamespace
+    - platop/03-DeploySampleApp
+    - platop/04-PrepareStk
+    - platop/05-ServiceBinding
+    - platop/06-DynamicServiceProvision
+    - appop/00-PrepareIDE
+    - appop/01-SimpleWeb
+    - appop/02-Functions
+    - appop/03-TestScan
+    - appop/04-DynamicAPIRegister
+    - appop/05-ServiceBindings
+    - appop/06-LiveUpdate
+    - appop/08-GitOps
+    - appop/07-AppAccelerator
