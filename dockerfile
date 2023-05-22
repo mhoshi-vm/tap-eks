@@ -120,7 +120,7 @@ COPY conf/install-from-tanzunet.sh /home/eduk8s/install-from-tanzunet.sh
 # workaround
 RUN chown 1001:1001 -R /home/eduk8s
 RUN chsh eduk8s -s /bin/bash
-ENV PATH="/usr/local/bin:$PATH"
+ENV PATH="/home/eduk8s/.local/bin:/usr/local/bin:$PATH"
 
 # cleanup
 USER 1001
