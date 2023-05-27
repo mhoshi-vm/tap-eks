@@ -29,6 +29,10 @@ spec:
           type: string
           description: tap version
           default: 1.5.1
+        giteaimage:
+          type: string
+          description: tap version
+          default: gitea/gitea
         tls:
           type: object
           additionalProperties: false
