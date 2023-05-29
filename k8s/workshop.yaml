@@ -26,7 +26,7 @@ spec:
         layout: split
     dashboards:
     - name: Gitea
-      url: http://gitea:3000
+      url: http://localhost:3000
     objects:
       - apiVersion: rbac.authorization.k8s.io/v1
         kind: ClusterRoleBinding
@@ -41,30 +41,3 @@ spec:
           - kind: ServiceAccount
             namespace: $(workshop_namespace)
             name: $(service_account)
-      - apiVersion: v1
-        kind: Pod
-        metadata:
-          creationTimestamp: null
-          labels:
-            run: gitea
-          name: gitea
-          namespace: $(workshop_namespace)
-        spec:
-          containers:
-          - image: #@ data.values.giteaimage
-            name: gitea
-            env:
-            - name: GITEA_WORK_DIR
-              value: /tmp
-            resources: {}
-            securityContext:
-              capabilities:
-                drop:
-                - ALL
-              allowPrivilegeEscalation: false
-              runAsNonRoot: true
-              seccompProfile:
-                type: RuntimeDefault
-              runAsUser: 1000
-          dnsPolicy: ClusterFirst
-          restartPolicy: Always

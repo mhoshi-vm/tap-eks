@@ -103,6 +103,18 @@ RUN wget https://github.com/okd-project/okd/releases/download/${OC_VERSION}/open
     sudo install oc /usr/local/bin/ && \
     rm kubectl  oc  openshift-client-linux-${OC_VERSION}.tar.gz
 
+# gitea
+ENV GITEA_VESION=1.19.3 
+ENV ENABLE_GITEA=true
+RUN wget https://dl.gitea.com/gitea/${GITEA_VESION}/gitea-${GITEA_VESION}-linux-amd64 && \
+    chmod +x gitea-${GITEA_VESION}-linux-amd64 && \
+    mkdir /opt/eduk8s/gitea && \
+    mv gitea-${GITEA_VESION}-linux-amd64 /opt/eduk8s/gitea/gitea  && \
+    chown 1001:1001 -R /opt/eduk8s/gitea
+
+COPY conf/supervisor-gitea.conf /opt/eduk8s/etc/supervisor/gitea.conf
+
+
 RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null && \
     tanzu completion bash | sudo tee /etc/bash_completion.d/tanzu > /dev/null && \
     ytt completion bash | sudo tee /etc/bash_completion.d/ytt > /dev/null && \
@@ -116,6 +128,7 @@ RUN rm -f LICENSE README.md
 COPY conf/supervisor-editor.conf /opt/eduk8s/etc/supervisor/editor.conf
 RUN rm /opt/eduk8s/.bash_profile
 COPY conf/install-from-tanzunet.sh /home/eduk8s/install-from-tanzunet.sh
+RUN chmod +x /home/eduk8s/install-from-tanzunet.sh
 
 # workaround
 RUN chown 1001:1001 -R /home/eduk8s
