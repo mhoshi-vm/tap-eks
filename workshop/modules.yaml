@@ -1,51 +1,51 @@
 modules:
   platop/01-EnableHandsOn:
-    name: ハンズオン作業環境の有効化（Learning Center）
+    name: (全) ハンズオン作業環境の有効化（Learning Center）
     exit_sign: 次のコンテンツ
   platop/02-ConfigureDevNamespace:
-    name: Developer Namespaceの作成
+    name: (全) Developer Namespaceの作成
     exit_sign: 次のコンテンツ
   platop/03-DeploySampleApp:
-    name: サンプルアプリケーションのデプロイ
+    name: (全) サンプルアプリケーションのデプロイ
     exit_sign: 次のコンテンツ
   platop/04-EnableScanTapGUI:
-    name: TAP-GUI のスキャニングの有効化
+    name: (個) TAP-GUI のスキャニングの有効化
     exit_sign: 次のコンテンツ
   platop/05-PrepareStk:
-    name: Services Toolkit の準備
+    name: (個) Services Toolkit の準備
     exit_sign: 次のコンテンツ
   platop/06-ServiceBinding:
-    name: Service Bindings の稼働検証
+    name: (全) Service Bindings の稼働検証
     exit_sign: 次のコンテンツ
   platop/07-DynamicServiceProvision:
-    name: Service Toolkit 動的プロビジョン機能の利用
+    name: (全) Service Toolkit 動的プロビジョン機能の利用
     exit_sign: 次のコンテンツ
   platop/08-UpdateTAP:
-    name: TAPのアップデート(1.5.0 > 1.5.1)
+    name: (個) TAPのアップデート(1.5.0 > 1.5.1)
     exit_sign: 次のコンテンツ
   appop/09-PrepareIDE:
-    name: IDEのセットアップ(VSCode Server)
+    name: (全) IDEのセットアップ(VSCode Server)
     exit_sign: 次のコンテンツ
   appop/10-SimpleWeb:
-    name: シンプルなWebアプリケーションのデプロイ
+    name: (全) シンプルなWebアプリケーションのデプロイ
     exit_sign: 次のコンテンツ
   appop/11-Functions:
-    name: Functionアプリケーションのデプロイ
+    name: (全) Functionアプリケーションのデプロイ
     exit_sign: 次のコンテンツ
   appop/12-TestScan:
-    name: テスト & スキャンのスクリプトの登録
+    name: (全) テスト & スキャンのスクリプトの登録
     exit_sign: 次のコンテンツ
   appop/13-DynamicAPIRegister:
-    name: 動的API登録の確認
+    name: (全) 動的API登録の確認
     exit_sign: 次のコンテンツ
   appop/14-ServiceBindings:
-    name: Service Bindings 連携の確認
+    name: (全) Service Bindings 連携の確認
     exit_sign: 次のコンテンツ
   appop/15-LiveUpdate:
-    name: LiveUpdateによる高速Iteration
+    name: (全) LiveUpdateによる高速Iteration
     exit_sign: 次のコンテンツ
   appop/16-GitOps:
-    name: GitOps モードのデプロイ
+    name: (個) GitOps モードのデプロイ
     exit_sign: 次のコンテンツ
   appop/17-AppAccelerator:
-    name: Application Accelerator を登録し、開発者に公開
+    name: (個) Application Accelerator を登録し、開発者に公開
