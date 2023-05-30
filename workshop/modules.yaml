@@ -23,29 +23,29 @@ modules:
   platop/08-UpdateTAP:
     name: (個) TAPのアップデート(1.5.0 > 1.5.1)
     exit_sign: 次のコンテンツ
-  appop/00-PrepareIDE:
+  appop/09-PrepareIDE:
     name: (全) IDEのセットアップ(VSCode Server)
     exit_sign: 次のコンテンツ
-  appop/01-SimpleWeb:
+  appop/10-SimpleWeb:
     name: (全) シンプルなWebアプリケーションのデプロイ
     exit_sign: 次のコンテンツ
-  appop/02-Functions:
+  appop/11-Functions:
     name: (全) Functionアプリケーションのデプロイ
     exit_sign: 次のコンテンツ
-  appop/03-TestScan:
+  appop/12-TestScan:
     name: (全) テスト & スキャンのスクリプトの登録
     exit_sign: 次のコンテンツ
-  appop/04-DynamicAPIRegister:
+  appop/13-DynamicAPIRegister:
     name: (全) 動的API登録の確認
     exit_sign: 次のコンテンツ
-  appop/05-ServiceBindings:
+  appop/14-ServiceBindings:
     name: (全) Service Bindings 連携の確認
     exit_sign: 次のコンテンツ
-  appop/06-LiveUpdate:
+  appop/15-LiveUpdate:
     name: (全) LiveUpdateによる高速Iteration
     exit_sign: 次のコンテンツ
-  appop/07-GitOps:
+  appop/16-GitOps:
     name: (個) GitOps モードのデプロイ
     exit_sign: 次のコンテンツ
-  appop/08-AppAccelerator:
+  appop/17-AppAccelerator:
     name: (個) Application Accelerator を登録し、開発者に公開
