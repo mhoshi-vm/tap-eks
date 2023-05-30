@@ -36,7 +36,8 @@ RUN sudo apt-get update && sudo apt-get install --no-install-recommends -y \
     jq \
     curl \
     unzip \
-    wget 
+    wget  \
+    golang
 
 # Liberica JDK
 ENV JDK_VERSION=17.0.7+7
@@ -102,18 +103,6 @@ RUN wget https://github.com/okd-project/okd/releases/download/${OC_VERSION}/open
     tar xzvf openshift-client-linux-${OC_VERSION}.tar.gz && \
     sudo install oc /usr/local/bin/ && \
     rm kubectl  oc  openshift-client-linux-${OC_VERSION}.tar.gz
-
-# gitea
-ENV GITEA_VESION=1.19.3 
-ENV ENABLE_GITEA=true
-RUN wget https://dl.gitea.com/gitea/${GITEA_VESION}/gitea-${GITEA_VESION}-linux-amd64 && \
-    chmod +x gitea-${GITEA_VESION}-linux-amd64 && \
-    mkdir /opt/eduk8s/gitea && \
-    mv gitea-${GITEA_VESION}-linux-amd64 /opt/eduk8s/gitea/gitea  && \
-    chown 1001:1001 -R /opt/eduk8s/gitea
-
-COPY conf/supervisor-gitea.conf /opt/eduk8s/etc/supervisor/gitea.conf
-
 
 RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null && \
     tanzu completion bash | sudo tee /etc/bash_completion.d/tanzu > /dev/null && \
