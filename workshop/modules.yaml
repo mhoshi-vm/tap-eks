@@ -1,4 +1,7 @@
 modules:
+  platop/section:
+    name: For Platform Operator 編
+    exit_sign: 次のコンテンツ
   platop/01-EnableHandsOn:
     name: (全) ハンズオン作業環境の有効化（Learning Center）
     exit_sign: 次のコンテンツ
@@ -22,6 +25,9 @@ modules:
     exit_sign: 次のコンテンツ
   platop/08-UpdateTAP:
     name: (個) TAPのアップデート(1.5.0 > 1.5.1)
+    exit_sign: 次のコンテンツ
+  appop/section:
+    name: For App Operator 編
     exit_sign: 次のコンテンツ
   appop/09-PrepareIDE:
     name: (全) IDEのセットアップ(VSCode Server)

@@ -123,6 +123,7 @@ RUN chmod +x /home/eduk8s/install-from-tanzunet.sh
 RUN chown 1001:1001 -R /home/eduk8s
 RUN chsh eduk8s -s /bin/bash
 ENV PATH="/home/eduk8s/.local/bin:/usr/local/bin:$PATH"
+RUN go install -v golang.org/x/tools/gopls@latest
 
 # cleanup
 USER 1001

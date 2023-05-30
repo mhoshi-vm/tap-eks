@@ -2,6 +2,7 @@ name: マルチKubernetesをサポートするVMware Tanzu ~ OpenShift上のア�
 
 modules:
     activate:
+    -  platop/section
     -  platop/01-EnableHandsOn
     -  platop/02-ConfigureDevNamespace
     -  platop/03-DeploySampleApp
@@ -10,6 +11,7 @@ modules:
     -  platop/06-ServiceBinding
     -  platop/07-DynamicServiceProvision
     -  platop/08-UpdateTAP
+    -  appop/section
     -  appop/09-PrepareIDE
     -  appop/10-SimpleWeb
     -  appop/11-Functions
