@@ -24,15 +24,11 @@ spec:
       terminal:
         enabled: true
         layout: split
-    dashboards:
-    - name: Gitea
-      url: http://localhost:3000
     objects:
       - apiVersion: rbac.authorization.k8s.io/v1
         kind: ClusterRoleBinding
         metadata:
-          name: $(workshop_namespace)-workshop-read-crb
-          namespace: $(workshop_namespace)
+          name: $(session_namespace)-workshop-read-crb
         roleRef:
           apiGroup: rbac.authorization.k8s.io
           kind: ClusterRole
