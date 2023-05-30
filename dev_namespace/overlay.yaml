@@ -32,21 +32,25 @@ spec:
         type: string
       spec: null
       steps:
-      - image: mcr.microsoft.com/devcontainers/python
+      - image: okddemo.azurecr.io/python:latest
         name: test
         resources: {}
         script: |-
           set -ex
+          whoami
           cd `mktemp -d`
+          export HOME=$PWD
+          export PATH=$HOME/.local/bin:$PATH
+
           wget -qO- $(params.source-url) | tar xvz -m
-          pip install -r requirements.txt
+          pip install -r requirements.txt --user
           pip show pytest || {
             echo "###\nWarning: Pytest is missing in your requirements\n###";
-            pip install pytest
+            pip install pytest --user
           }
           pip show coverage || {
             echo "###\nWarning: Coverage is missing in your requirements\n###";
-            pip install coverage
+            pip install coverage --user
           }
           pytest
           coverage run -m pytest .
