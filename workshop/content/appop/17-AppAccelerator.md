@@ -14,14 +14,12 @@ tanzu accelerator list
 
 
 ![グラフィカル ユーザー インターフェイス, テキスト
-自動的に生成された説明](../media/image79.png){width="7.391439195100612in"
-height="3.577769028871391in"}
+自動的に生成された説明](../media/image79.png)
 
 TAP GUI からも確認できます。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image80.png){width="7.370692257217848in"
-height="4.049922353455818in"}
+自動的に生成された説明](../media/image80.png)
 
 まず、TAP GUI からデフォルトで提供している Application Accelerators
 を一つ選んで雛形テンプレートを作成してみます。
@@ -29,8 +27,7 @@ height="4.049922353455818in"}
 Tanzu Java Web App を選択し、CHOOSE をクリックします。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
-自動的に生成された説明](../media/image81.png){width="6.747540463692038in"
-height="2.2766513560804897in"}
+自動的に生成された説明](../media/image81.png)
 
 数字の 9
 はこの雛形テンプレートを何回ダンロードしているかを示しています。
@@ -38,15 +35,13 @@ height="2.2766513560804897in"}
 今回は Java version として Java11 を選択し、Next をクリックします。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image82.png){width="7.45632874015748in"
-height="5.139798775153106in"}
+自動的に生成された説明](../media/image82.png)
 
 「GENERATE ACCELERATOR」 をクリックします。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 メール
-自動的に生成された説明](../media/image83.png){width="7.268262248468941in"
-height="3.4515627734033245in"}
+自動的に生成された説明](../media/image83.png)
 
 しばらく待つと、「EXPLORE ZIP FILE」 と 「DOWNLOAD ZIP
 FILE」のボタンが表示されます。
@@ -57,15 +52,12 @@ ZIP FILE」 としてテンプレートの中身を\
 開いてみます。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション, Teams
-自動的に生成された説明](../media/image84.png){width="7.43253937007874in"
-height="2.6680905511811024in"}
+自動的に生成された説明](../media/image84.png)
 
-選んだ Java11 が\
-workload.yaml に反映されているのを確認できます。
+選んだ Java11 が workload.yaml に反映されているのを確認できます。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
-自動的に生成された説明](../media/image85.png){width="7.068423009623797in"
-height="4.001100174978128in"}
+自動的に生成された説明](../media/image85.png)
 
 上記の画面を確認後、右下の CLOSE をクリックし、EXPLORE 画面を閉じます。
 既存のApplication Acceleratorテンプレートを利用するデモは以上です。
@@ -80,8 +72,7 @@ tanzu accelerator create tap-python-recipies --git-repository ${GIT_REPOSITORY_U
 ```
 
 
-![](../media/image86.png){width="7.136984908136483in"
-height="0.5714074803149606in"}
+![](../media/image86.png)
 
 <https://github.com/mhoshi-vm/tap-python-recipies/accelerator.yaml>
 
@@ -111,25 +102,21 @@ tanzu accelerator list
 tap-python-recipies が登録されているのを確認できます。
 
 ![テキスト
-自動的に生成された説明](../media/image87.png){width="7.505172790901137in"
-height="4.060672572178477in"}
+自動的に生成された説明](../media/image87.png)
 
 TAP GUI からも新規で登録した tap-python-recipiesを確認します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image88.png){width="7.5in"
-height="1.8756944444444446in"}
+自動的に生成された説明](../media/image88.png)
 
 CHOOSE ボタンをクリックし、Generate Accelerators 画面でChoose Python
 Framework \* ドロップダウンリストを展開します。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 メール
-自動的に生成された説明](../media/image89.png){width="7.1746522309711285in"
-height="4.120576334208224in"}
+自動的に生成された説明](../media/image89.png)
 
 すると、ハンズオンの各章のタイトルが表示されているのを確認できます。
-
 「シンプルなWebアプリケーションのデプロイ」をクリックし、NEXT
 ボタンをクリックします。
 
@@ -138,8 +125,7 @@ height="4.120576334208224in"}
 テンプレートを作成します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image90.png){width="7.0625in"
-height="7.616771653543307in"}
+自動的に生成された説明](../media/image90.png)
 
 EXPLORE ZIP FILE をクリックすると、git clone でダウンロードしていた
 「シンプルなWebアプリケーションのデプロイ」の Python
@@ -152,8 +138,7 @@ Owner-name \* を下記のように変更します。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 メール
-自動的に生成された説明](../media/image91.png){width="7.243194444444445in"
-height="4.468159448818898in"}
+自動的に生成された説明](../media/image91.png)
 
 NEXT ボタン -\> GENERATE ACCELERATOR ボタンをクリックします。
 
@@ -164,8 +149,7 @@ gitops_repository_owner と gitops_branch
 が反映されているのを確認できます。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション, メール
-自動的に生成された説明](../media/image92.png){width="7.268187882764654in"
-height="4.055857392825897in"}
+自動的に生成された説明](../media/image92.png)
 
 このように、企業はアプリケーションの標準テンプレートを用意し、Application
 Accelerator に登録することで、開発者は都度

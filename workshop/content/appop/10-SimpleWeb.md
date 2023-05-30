@@ -3,8 +3,7 @@
 メニューよりOpen Folder を選択します。
 
 ![Graphical user interface, application Description automatically
-generated](../media/image40.png){width="3.7461450131233596in"
-height="1.2927876202974629in"}
+generated](../media/image40.png)
 
 /home/eduk8s/tap-python-recipies/python-simple-rest/
 を入力し、フォルダーを起動します。
@@ -12,8 +11,7 @@ height="1.2927876202974629in"}
 左ペインで右クリックを行い、"Tanzu Apply Workload" を選択します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image41.png){width="2.2541240157480313in"
-height="3.574931102362205in"}
+自動的に生成された説明](../media/image41.png)
 
 ワークロードがデプロイされるまで、2-3分待ちます。
 
@@ -21,14 +19,12 @@ height="3.574931102362205in"}
 
 \$ kubectl get ksvc
 
-![](../media/image42.png){width="7.783073053368329in"
-height="0.87207895888014in"}
+![](../media/image42.png)
 
 webブラウザ経由で上記の URL を入力し、サービス内容を確認します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション, Word
-自動的に生成された説明](../media/image43.png){width="7.354025590551181in"
-height="1.0208136482939631in"}
+自動的に生成された説明](../media/image43.png)
 
 アプリケーションの動作確認としては以上ですが、ソースコードを参照します。
 

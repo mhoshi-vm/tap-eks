@@ -1,10 +1,8 @@
-## (個) Services Toolkit の準備
 
 TERMINAL で作業します。
 
 ![テキスト
-自動的に生成された説明](../media/image2.png){width="5.712390638670167in"
-height="2.458286307961505in"}
+自動的に生成された説明](../media/image2.png)
 
 Service Toolkit
 がSecretへの参照権限を与えます。IMPORTANTがフラグになっており、SerivcesToolkitの追加ロールです。

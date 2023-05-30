@@ -18,8 +18,7 @@ Operator チームがボトルネックになる考慮点がでてきます。
 TERMINAL で作業します。
 
 ![テキスト
-自動的に生成された説明](../media/image2.png){width="5.712390638670167in"
-height="2.458286307961505in"}
+自動的に生成された説明](../media/image2.png)
 
 自身のネームスペースの値を再度設定してください。
 
@@ -45,8 +44,7 @@ tanzu service class get postgresql-unmanaged
 
 
 ![テキスト
-自動的に生成された説明](../media/image23.png){width="7.565557742782152in"
-height="1.3634055118110235in"}
+自動的に生成された説明](../media/image23.png)
 
 上記の storageGBはDB容量の単位を指しており、今回は 5GB容量の
 DBを使いたいので、下記のコマンドを実行して\
@@ -56,7 +54,7 @@ class claim を作成します。
 tanzu service class-claim create ${YOUR_NAMESPACE}-claim --class postgresql-unmanaged -p storageGB=5
 ```
 
-![](../media/image24.png){width="7.5in" height="0.6118055555555556in"}
+![](../media/image24.png)
 
 また、下記のコマンドを実行して、class claim の作成状況を確認します。
 
@@ -66,8 +64,7 @@ tanzu services class-claims get ${YOUR_NAMESPACE}-claim
 
 
 ![A computer screen with white text Description automatically generated
-with low confidence](../media/image25.png){width="7.5in"
-height="2.551388888888889in"}\
+with low confidence](../media/image25.png)\
 storageGB: 5\
 Ready: True
 
@@ -97,8 +94,7 @@ tanzu apps wld list
 
 
 ![A screen shot of a computer Description automatically generated with
-low confidence](../media/image26.png){width="7.5in"
-height="1.3284722222222223in"}
+low confidence](../media/image26.png)
 
 下記のコマンドでURL を確認し、サービスにアクセスしてみます。
 
@@ -106,16 +102,14 @@ height="1.3284722222222223in"}
 kubectl get ksvc
 ```
 
-![](../media/image27.png){width="7.681665573053368in"
-height="0.6540212160979878in"}
+![](../media/image27.png)
 
 ```execute
 curl -k https://hello-vehicle-with-db-dynamic.${YOUR_NAMESPACE}.tap.ok-tap.net/vehicles  | jq .
 ```
 
 ![テキスト
-自動的に生成された説明](../media/image28.png){width="7.469201662292213in"
-height="5.847598425196851in"}
+自動的に生成された説明](../media/image28.png)
 
 今回はBitnami Services
 経由でプリインストールされたバックエンドサービスを利用して self service
@@ -129,11 +123,11 @@ postgresql は下記のコマンドで確認できます。
 kubectl get ns  | grep ${YOUR_NAMESPACE}-claim
 ```
 
-![](../media/image29.png){width="7.5in" height="0.3368055555555556in"}
+![](../media/image29.png)
 
 該当Namespaceのpodを確認すると、postgresql が稼働しています。
 
-![](../media/image30.png){width="7.5in" height="0.5541666666666667in"}
+![](../media/image30.png)
 
 Bitnami Services
 以外にも動的サービスを登録することで様々なバックエンドサービスを self

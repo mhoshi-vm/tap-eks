@@ -8,24 +8,21 @@ Buildpacks](https://blogs.vmware.com/vmware-japan/2023/01/tanzu-application-plat
 このハンズオンでは、TAP でサポートしているFunctions
 Buildpacks経由のアプリケーションのデプロイを行います。
 
-VScode Server より、Open Folder を選択し、以下のフォルダーを選択します。
+Editor より、Open Folder を選択し、以下のフォルダーを選択します。
 
 -   /home/eduk8s/tap-python-recipies/python-simple-func/
 
 ![Graphical user interface, text, application Description automatically
-generated](../media/image44.png){width="3.322726377952756in"
-height="1.7970800524934383in"}
+generated](../media/image44.png)
 
 展開後、同じくTanzu Apply Workload
 よりデプロイを展開します。デプロイが完了するまで1-2分待ったのち以下のコマンドで動作を確認します。
 
-![](../media/image45.png){width="7.64831583552056in"
-height="0.8546576990376203in"}
+![](../media/image45.png)
 
 同様に Webブラウザから確認します。
 
-![](../media/image46.png){width="7.391525590551181in"
-height="0.7416524496937883in"}
+![](../media/image46.png)
 
 アプリケーションのデプロイとしては、以上ですが、ソースコードを比較します。
 

@@ -6,8 +6,7 @@ Serverを利用します。なお、正式な開発IDEのセットアップ方�
 TAPの開発の過程で、以下のコンテナイメージが作成されます。
 
 ![Diagram Description automatically
-generated](../media/image37.png){width="7.5in"
-height="2.2847222222222223in"}
+generated](../media/image37.png)
 
 -   SourceCode Image :
     ローカルのディレクトリーをコンテナイメージに圧縮して、レジストリに登録されます。コンテナに命名規則はなく、複数アプリケーションで同じ名前のイメージを使いまわせます。なお、For
@@ -29,8 +28,7 @@ AppOperator 編ではこの、"SourceCode Image"
 Editor で作業します。
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](../media/image38.png){width="7.5in"
-height="5.456944444444445in"}
+medium confidence](../media/image38.png)
 
 Tanzu Developer Tools の Extension Settings を選択します。
 
@@ -40,8 +38,7 @@ Tanzu: Source Image は  **okddemo.azurecr.io/tap/source-codes**
 にします。
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](../media/image39.png){width="6.037384076990376in"
-height="3.1832720909886265in"}
+medium confidence](../media/image39.png)
 
 最後にターミナルより以下を実行してください。
 

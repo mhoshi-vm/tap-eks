@@ -6,8 +6,7 @@ VScode ServerのOpen Folder より以下を開いてください。
 -   /home/eduk8s/tap-python-recipies/python-rdb-sb-func/
 
 ![Graphical user interface, application Description automatically
-generated](../media/image52.png){width="6.875in"
-height="2.3472222222222223in"}
+generated](../media/image52.png)
 
 Editor のターミナルを開いて以下を確認してください。
 
@@ -18,7 +17,7 @@ kubectl get secrets
 ```
 
 
-![](../media/image53.png){width="7.5in" height="0.33541666666666664in"}
+![](../media/image53.png)
 
 ここで、重要なのが、**App Developer がSecret
 にはアクセスができない**という点です。なので、Secret
@@ -30,7 +29,7 @@ kubectl get secrets
 tanzu service class-claim list
 ```
 
-![](../media/image54.png){width="7.5in" height="0.3902777777777778in"}
+![](../media/image54.png)
 
 Platform Operator編ですでに定義した Claim が確認できると思います。
 
@@ -39,16 +38,14 @@ Workload.yaml
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 メール
-自動的に生成された説明](../media/image55.png){width="6.279481627296588in"
-height="3.978665791776028in"}
+自動的に生成された説明](../media/image55.png)
 
 Requirements.txt
 を開きます。Pyservicebindingsと呼ばれるライブラリが追加されていることを確認します。
 
 ![Graphical user interface, text, application, chat or text message
 Description automatically
-generated](../media/image56.png){width="2.834328521434821in"
-height="0.7770352143482064in"}
+generated](../media/image56.png)
 
 左ペインより、"Tanzu Apply Workload"
 を実行します。デプロイが完了するまでまちます。
@@ -57,13 +54,11 @@ height="0.7770352143482064in"}
 よりエンドポイントを確認後、ブラウザよりurlへアクセスを行います。\
 すると以下のとおり、サービスの認証情報を取得できていることを確認します。
 
-![](./media/image57.png){width="7.055371828521435in"
-height="0.5760870516185477in"}
+![](../media/image57.png)
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 Word, Web サイト
-自動的に生成された説明](../media/image58.png){width="7.239874234470691in"
-height="0.9061406386701663in"}
+自動的に生成された説明](../media/image58.png)
 
 App Developer 視点での Service Bindings
 のメリットとして、パスワードなどの認証情報を知らずともアプリケーションのライブラリによって、透過的に渡すことができます。このようにすることでよりセキュアな外部リソース管理が行えます。

@@ -4,9 +4,7 @@ Developer NamespaceとよばれるTAPの作業ネームスペースを設定し�
 TERMINAL で作業します。
 
 ![テキスト
-自動的に生成された説明](../media/image2.png){width="5.712390638670167in"
-height="2.458286307961505in"}
-
+自動的に生成された説明](../media/image2.png)
 Terminal より以下のコマンド実行します。
 
 ```execute
@@ -18,8 +16,7 @@ kubectl get scanpolicy
 になっていることを確認してください。
 
 ![A black screen with white text Description automatically generated
-with low confidence](../media/image3.png){width="7.5in"
-height="1.6201388888888888in"}
+with low confidence](../media/image3.png)
 
 Developer Namespace
 を有効にしてききます。以下のコマンド実行してください。
@@ -40,8 +37,7 @@ kubectl get scanpolicy
 
 
 ![A screenshot of a computer program Description automatically generated
-with medium confidence](../media/image4.png){width="7.5in"
-height="1.8041666666666667in"}
+with medium confidence](../media/image4.png)
 
 Developer Namespace
 は特定のラベル("apps.tanzu.vmware.com/tap-ns=\"\")を設定されたネームスペースに以下を設定していきます。

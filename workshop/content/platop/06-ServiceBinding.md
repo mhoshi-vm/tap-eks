@@ -3,8 +3,7 @@
 TERMINAL で作業します。
 
 ![テキスト
-自動的に生成された説明](../media/image2.png){width="5.712390638670167in"
-height="2.458286307961505in"}
+自動的に生成された説明](../media/image2.png)
 
 自身のネームスペースの値を再度設定してください。
 
@@ -44,7 +43,7 @@ EOF
 kubectl get secret -n database-ns ${YOUR_NAMESPACE}-db
 ```
 
-![](../media/image14.png){width="7.5in" height="0.4979166666666667in"}
+![](../media/image14.png)
 
 次に "-n database-ns" を" -n \$YOUR_NAMESPACE" に変えて実行します。
 
@@ -52,7 +51,7 @@ kubectl get secret -n database-ns ${YOUR_NAMESPACE}-db
 kubectl get secret -n $YOUR_NAMESPACE ${YOUR_NAMESPACE}-db
 ```
 
-![](../media/image15.png){width="7.5in" height="0.30972222222222223in"}
+![](../media/image15.png)
 
 これは、Postgresの認証情報が特定のNamespaceでしか利用可能でない状態を表しており、このままでは
 Developer
@@ -70,8 +69,7 @@ tanzu service claim create ${YOUR_NAMESPACE}-claim  \
 実行結果は下記となります。
 
 ![A screen shot of a computer Description automatically generated with
-medium confidence](../media/image16.png){width="7.5in"
-height="1.304861111111111in"}
+medium confidence](../media/image16.png)
 
 実行後再度同じコマンドを実行すると、新しくSecretがDeveloperネームペースにコピーされたことを確認します。
 
@@ -79,7 +77,7 @@ height="1.304861111111111in"}
 kubectl get secret -n $YOUR_NAMESPACE ${YOUR_NAMESPACE}-db
 ```
 
-![](../media/image17.png){width="7.5in" height="0.4625in"}
+![](../media/image17.png)
 
 tanzu services resource-claims コマンドからも resource claim
 を確認できます。
@@ -91,8 +89,7 @@ tanzu services resource-claims get ${YOUR_NAMESPACE}-claim
 
 ![A picture containing text, software, font, screenshot Description
 automatically
-generated](../media/image18.png){width="7.338243657042869in"
-height="1.8223304899387576in"}
+generated](../media/image18.png)
 
 ここで、同じ claim を別のネームスペース(default)で作ろうと試みてみます。
 
@@ -113,8 +110,7 @@ tanzu services resource-claims get ${YOUR_NAMESPACE}-claim -n default
 
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](../media/image19.png){width="7.5in"
-height="1.854861111111111in"}
+medium confidence](../media/image19.png)
 
 確認すると" resource has already been claimed by another ResourceClaim"
 というメッセージで失敗していることがわかります。ここまでの挙動をまとめるとこのResourceClaim
@@ -146,7 +142,7 @@ tanzu services claims list
 ```
 
 
-![](../media/image20.png){width="7.5in" height="0.7659722222222223in"}
+![](../media/image20.png)
 
 この状態で、以下のコマンドを実行します。赤字にSecretではなくClaimを指定します。
 
@@ -166,14 +162,12 @@ tanzu apps workload apply hello-vehicle \
 get podsを実行します。
 
 ![モニター画面に映る文字
-自動的に生成された説明](../media/image21.png){width="7.2021030183727035in"
-height="1.9291349518810148in"}
+自動的に生成された説明](../media/image21.png)
 
 ログを確認すると、設定したダミーの認証情報を引き継げていることがわかります。
 
 ![A screen shot of a computer Description automatically generated with
-medium confidence](../media/image22.png){width="7.5in"
-height="1.63125in"}
+medium confidence](../media/image22.png)
 
 ハンズオンとしては、Services Toolkit と Services Bindings
 についてはまだ基本的なところしか取り上げていないので、以下のブログも併せてご参照ください。
