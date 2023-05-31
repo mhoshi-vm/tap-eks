@@ -5,7 +5,7 @@ TERMINAL で作業します。
 自動的に生成された説明](../media/image2.png)
 
 Service Toolkit
-がSecretへの参照権限を与えます。IMPORTANTがフラグになっており、SerivcesToolkitの追加ロールです。
+へのSecretの参照権限を与えます。
 
 ```execute
 cat <<EOF | kubectl apply -f-
@@ -56,8 +56,7 @@ tanzu service class list
 のコマンドを実行すると、追加されたClassが表示されます。
 
 ![テキスト
-自動的に生成された説明](../media/image13.png){width="7.487547025371828in"
-height="1.6966360454943132in"}
+自動的に生成された説明](../media/image13.png)
 
 database-ns という Namespace を作成します。
 

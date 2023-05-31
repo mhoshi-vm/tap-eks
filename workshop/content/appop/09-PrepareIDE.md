@@ -12,10 +12,8 @@ generated](../media/image37.png)
     ローカルのディレクトリーをコンテナイメージに圧縮して、レジストリに登録されます。コンテナに命名規則はなく、複数アプリケーションで同じ名前のイメージを使いまわせます。なお、For
     Platform Operators 編にあったよう、"\--git-repo"
     フラグを指定した場合は直接Gitのレポジトリーが参照されるため、このイメージは作成されません。
-
 -   Application Image :
     ソースコードをコンパイルおよび依存関係を含めたアプリケーションのイメージです。
-
 -   Manifest Image: Kubernetes
     のマニフェストが含まれたイメージです。なお、これは後のハンズオンの手順にあるGitOpsの機能でデプロイした場合はこのイメージは作成されません。
 
@@ -23,7 +21,7 @@ AppOperator 編ではこの、"SourceCode Image"
 を明示的に設定する必要があり、これは各Editorや端末ごとに設定します。
 
 **⚠️　今後この SourceCode Image
-が不要なエンハンスがなされる予定であり、これから実施する手順は将来不要になる予定です。⚠️　**
+が不要なエンハンスがなされる予定であり、これから実施する手順は将来不要になる予定です。⚠️**
 
 Editor で作業します。
 
@@ -31,9 +29,9 @@ Editor で作業します。
 medium confidence](../media/image38.png)
 
 Tanzu Developer Tools の Extension Settings を選択します。
-
-Tanzu Developer Tools -\> Extension Settings -\> User
-
+```
+Tanzu Developer Tools -> Extension Settings -> User
+```
 Tanzu: Source Image は  **okddemo.azurecr.io/tap/source-codes**
 にします。
 
@@ -49,8 +47,7 @@ medium confidence](../media/image39.png)
 docker login okddemo.azurecr.io
 ```
 
-Username: okddemo
-
-Token: ＜パスワードは当日共有＞
+- Username: okddemo
+- Token: ＜パスワードは当日共有＞
 
 IDEのセットアップは以上です。

@@ -35,8 +35,7 @@ spec:
 ```
 
 
-現状は For Platform Operators
-編にて、指定したパイプラインが登録されています。TAPでは、ビルドクラスタ時の品質ゲートの役割を設定することが可能です。ここでは、スクリプトをアップデートします。
+現状は特に何も設定しない指定したパイプラインが登録されています。TAPでは、ビルドクラスタ時の品質ゲートの役割を設定することが可能です。ここでは、スクリプトをアップデートします。
 
 以下のコマンド実行してください。
 
@@ -45,7 +44,9 @@ kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/python="true"
 ```
 
 Namespaceにこのラベルを設定することにより、Developer Namespace が python
-の値を識別して、それ専用のパイプラインが登録されます。
+の値を識別して、それ専用のパイプラインが登録されます。今回の環境では以下の該当行が適用されます。
+
+https://github.com/mhoshi-vm/tap-openshift-jp/blob/main/dev_namespace/overlay.yaml#L7-L57
 
 実行後(最大10分)まち、以下のコマンドを実行してください。
 
@@ -122,12 +123,9 @@ Workload.yaml を開き、" apps.tanzu.vmware.com/has-tests: true"
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
 自動的に生成された説明](../media/image48.png)
 
-この中でのpy-func-test を確認してください。
-
-なお、元となるソースコードについても以下の特徴がある点をご確認ください。
+この中でのpy-func-test を確認してください。なお、元となるソースコードについても以下の特徴がある点をご確認ください。
 
 -   Functionビルドパックにより、関数に対してのみテストを書くため、テストがシンプルで書きやすい
-
 -   Requirments.txt に自由に依存関係を含めることができる
 
 テスト&スキャンのスクリプトは以上です。

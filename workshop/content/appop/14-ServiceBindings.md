@@ -9,7 +9,6 @@ VScode ServerのOpen Folder より以下を開いてください。
 generated](../media/image52.png)
 
 Editor のターミナルを開いて以下を確認してください。
-
 まず以下のコマンドを実行します。
 
 ```
@@ -20,8 +19,7 @@ kubectl get secrets
 ![](../media/image53.png)
 
 ここで、重要なのが、**App Developer がSecret
-にはアクセスができない**という点です。なので、Secret
-の中身は開発者視点からは隠蔽されています。Secretにはアクセスできないにも関わらず、どのようにアプリケーションから利用できるかみていきます。
+にはアクセスができない**という点です。Secretにはアクセスできないにも関わらず、どのようにアプリケーションから利用できるかみていきます。
 
 次に以下を実行します。
 
@@ -32,9 +30,8 @@ tanzu service class-claim list
 ![](../media/image54.png)
 
 Platform Operator編ですでに定義した Claim が確認できると思います。
-
 Workload.yaml
-を開きます。実行の前に、値を**\$YOUR_NAMESPACE-claim**にアップデートしてください。
+を開きます。実行の前に、値を**確認したもの(\$YOUR_NAMESPACE-claim)**にアップデートしてください。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 メール
@@ -49,8 +46,9 @@ generated](../media/image56.png)
 
 左ペインより、"Tanzu Apply Workload"
 を実行します。デプロイが完了するまでまちます。
-
-\$ kubectl get ksvc
+```
+kubectl get ksvc
+```
 よりエンドポイントを確認後、ブラウザよりurlへアクセスを行います。\
 すると以下のとおり、サービスの認証情報を取得できていることを確認します。
 

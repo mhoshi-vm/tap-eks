@@ -69,12 +69,11 @@ gitops_repository_name を正しいものにアップデートします。
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
 自動的に生成された説明](../media/image74.png)
 
-** ⚠️　TAPでのGitOpsは上のようにWorkload個別で設定する他にクラスタ全体でデフォルト値を設定する方法があります。その場合うえのパラメータは不要になります。⚠️ **
+**⚠️　Workload個別で設定する他にクラスタ全体でデフォルト値を設定する方法があります。その場合このパラメータは不要です。⚠️**
 
 左ペインより、Tanzu Apply Workloadを実行します。
 
-![](../media/image75.png){width="2.458286307961505in"
-height="2.933277559055118in"}
+![](../media/image75.png)
 
 しばらくして、Supply Chains -\> py-gitops -\> Config Writer より Pull
 Requestが成されていることを確認します。
@@ -82,8 +81,8 @@ Requestが成されていることを確認します。
 ![グラフィカル ユーザー インターフェイス, アプリケーション
 自動的に生成された説明](../media/image76.png)
 
-「APPROVE A REQUEST」 をクリックすることで、Github の pull request
-画面に遷移しますので、\
+APPROVE A REQUEST を選択することで、Github の pull request
+画面に遷移します。
 Github 上から Merge pull request をします。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,

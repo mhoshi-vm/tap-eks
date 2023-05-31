@@ -17,7 +17,7 @@ TERMINAL で作業します。
 以下のコマンドを入力します。
 
 ```execute
-kubectl get secrets metadata-store-read-write-client -n metadata-store -o jsonpath=\"{.data.token}\" \| base64 -d
+echo `kubectl get secrets metadata-store-read-write-client -n metadata-store -o jsonpath="{.data.token}" | base64 -d`
 ```
 
 出力される値を保存します。再びTMCにログインをして、TAP

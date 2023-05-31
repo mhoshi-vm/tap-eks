@@ -1,5 +1,4 @@
 通常のLinuxサーバー上で起動するような従来型のアプリケーションをTAP経由でデプロイします。
-
 メニューよりOpen Folder を選択します。
 
 ![Graphical user interface, application Description automatically
@@ -17,8 +16,9 @@ generated](../media/image40.png)
 
 ターミナルを起動して、エンドポイントのURLの確認および動作の確認をします。
 
-\$ kubectl get ksvc
-
+```
+kubectl get ksvc
+```
 ![](../media/image42.png)
 
 webブラウザ経由で上記の URL を入力し、サービス内容を確認します。
@@ -31,12 +31,9 @@ webブラウザ経由で上記の URL を入力し、サービス内容を確認
 以下の特徴があります。
 
 -   Server.py にFlaskなどのWebサーバーの起動をすることが必要
-
 -   \@app_route
     アノテーションにより、どのエンドポイントで起動するかの明示指定が必要
-
 -   Requirements.txt にFlaskおよび Gunicorn の依存関係指定が必要
-
 -   Procfile に最終的な起動コマンドの指定が必要
 
 Linuxサーバー上でアプリケーションを起動する場合にはほぼ当たり前のように設定が必要な上記ですが、いわゆるビジネスロジックとは無関係なコードが多く含まれていることがわかります。これを念頭に次のハンズオンに進みます。

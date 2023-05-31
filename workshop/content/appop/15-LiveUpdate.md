@@ -1,20 +1,15 @@
 **⚠️　LiveUpdate機能は執筆時点Java
-以外では、正式にサポートされていません。⚠️　**
+以外では、正式にサポートされていません。⚠️**
 
 LiveUpdateを有効にすることで、コンテナのビルド時間をバイパスができ、サーバー上でしかテストできないコードを高速にIterateすることが可能です。TAP
 では、以下の条件の時に、LiveUpdate 可能なイメージの作成を試みます。
 
 -   [Cloud Native Buildpacks](https://buildpacks.io/)
     経由で作成していること
-
 -   ビルドパックがビルド時に BP_LIVE_RELOAD_ENABLED を解釈できること
-
     -   [Java](https://paketo.io/docs/howto/java/#enable-process-reloading)
-
     -   [NodeJS](https://paketo.io/docs/howto/nodejs/#enable-process-reloading)
-
     -   [Python](https://paketo.io/docs/howto/python/#enable-process-reloading)
-
     -   [Go](https://paketo.io/docs/howto/go/#using-bp_live_reload_enabled)
 
 このハンズオンでは、[Python](https://paketo.io/docs/howto/python/#enable-process-reloading)のガイドに従ったコードでハンズオンを行います。
@@ -56,7 +51,6 @@ generated](../media/image62.png)
 
 -   Procfile
     が、[コミュニティガイドに従った書き方](https://paketo.io/docs/howto/python/#setting-a-reloadable-start-command)になっていること
-
 -   Tiltfileが存在しており、どのパスのファイルをモニターするかなどが記載されていること
 
 #### Functions アプリケーションでLiveUpdate
@@ -91,7 +85,6 @@ medium confidence](../media/image60.png)
 
 ![](../media/image69.png)
 
-LiveUpdateは非常に強力な機能ですが、期待させた動作をするには、Tiltfileの構成を正しく理解する必要があります。\
-今回のハンズオンの例では、ビルドが伴うrequirements.txtの変更には対応ができない状態になっており、その場合は再デプロイが必要です。要件に応じて利用を検討してください。
+LiveUpdateは非常に強力な機能ですが、期待させた動作をするには、Tiltfileの構成を正しく理解する必要があります。今回のハンズオンの例では、ビルドが伴うrequirements.txtの変更には対応ができない状態になっており、その場合は再デプロイが必要です。要件に応じて利用を検討してください。
 
 ハンズオンは以上です。

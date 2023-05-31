@@ -14,7 +14,7 @@ export YOUR_NAMESPACE=`kubectl config view --minify -o jsonpath='{..namespace}'`
 本来は、外部データベース作成する必要がありますが、ここでは**外部データベースが既に存在しているという仮定**でその認証情報を利用できるようにしていく方法を紹介します。
 
 以下のような Secret
-を作成します。重要な点として、値は基本的には、ダミーのものをいれていますが、実環境では対象のサービスの情報をいれます。
+を作成します。重要な点として、値はダミーのものをいれていますが、実環境では対象のサービスの情報をいれます。
 
 ```execute
 cat <<EOF | kubectl apply -f-
@@ -62,7 +62,7 @@ tanzu service claim create ${YOUR_NAMESPACE}-claim  \
   --resource-name ${YOUR_NAMESPACE}-db \
   --resource-kind Secret \
   --resource-api-version v1 \
-  --resource-namespace database-ns
+  --resource-namespace database-ns　
 ```
 
 
@@ -154,7 +154,8 @@ tanzu apps workload apply hello-vehicle \
   --type web \
   --build-env BP_JVM_VERSION=17 \
   --service-ref vehicle=services.apps.tanzu.vmware.com/v1alpha1:ResourceClaim:${YOUR_NAMESPACE}-claim \
-  --annotation autoscaling.knative.dev/minScale=1
+  --annotation autoscaling.knative.dev/minScale=1 \
+  -y
 ```
 
 

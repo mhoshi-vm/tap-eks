@@ -9,4 +9,17 @@
 ./install-from-tanzunet.sh
 ```
 
+以下のコマンドを実行してサンプルのアプリケーションをダウンロードします。
+
+```execute
+git clone https://github.com/mhoshi-vm/tap-python-recipies
+```
+
+以下のコマンドを実行して、自身のNamespace名を確認します。この値はログインユーザーごとに異なるものが設定されています。
+
+```execute
+kubectl config view --minify -o jsonpath='{..namespace}'
+```
+
+
 これにより、ハンズオン環境がセットアップされました。

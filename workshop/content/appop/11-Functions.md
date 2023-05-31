@@ -30,10 +30,8 @@ generated](../media/image44.png)
 
 -   FlaskやGunicorn といった、Webサーバーに関する記述がなく、func.py
     には main 関数がある程度
-
 -   requirements.txt
     には依存関係が記載されていない（なお、空ファイルであろうと必ず必要です。）
-
 -   workload.yaml に BP_FUNCTION
     にあくまで、起動する関数が記載されている程度
 

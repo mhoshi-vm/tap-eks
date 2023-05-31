@@ -81,7 +81,8 @@ tanzu apps workload apply hello-vehicle-with-db-dynamic \
   --type web \
   --build-env BP_JVM_VERSION=17 \
   --service-ref vehicle=services.apps.tanzu.vmware.com/v1alpha1:ClassClaim:${YOUR_NAMESPACE}-claim \
-  --annotation autoscaling.knative.dev/minScale=1
+  --annotation autoscaling.knative.dev/minScale=1 \
+  -y
 ```
 
 

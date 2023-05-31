@@ -21,35 +21,29 @@ TAP GUI からも確認できます。
 ![グラフィカル ユーザー インターフェイス, アプリケーション
 自動的に生成された説明](../media/image80.png)
 
-まず、TAP GUI からデフォルトで提供している Application Accelerators
-を一つ選んで雛形テンプレートを作成してみます。
-
-Tanzu Java Web App を選択し、CHOOSE をクリックします。
+TAP GUI からデフォルトで提供している Application Accelerators
+を一つ選んで雛形テンプレートを作成します。Tanzu Java Web App を選択し、CHOOSE を選択します。
+なお、画面ショット数字の `9`
+はこの雛形テンプレートを何回ダンロードしているかを示しています。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
 自動的に生成された説明](../media/image81.png)
 
-数字の 9
-はこの雛形テンプレートを何回ダンロードしているかを示しています。
-
-今回は Java version として Java11 を選択し、Next をクリックします。
+今回は Java version として Java11 を選択し、Next を選択します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション
 自動的に生成された説明](../media/image82.png)
 
-「GENERATE ACCELERATOR」 をクリックします。
+GENERATE ACCELERATOR を選択します。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 メール
 自動的に生成された説明](../media/image83.png)
 
-しばらく待つと、「EXPLORE ZIP FILE」 と 「DOWNLOAD ZIP
-FILE」のボタンが表示されます。
-
-今回は IDE
-ツールとしてcode server を使うため、一旦はダウンロードせず、「EXPLORE
-ZIP FILE」 としてテンプレートの中身を\
-開いてみます。
+しばらく待つと、EXPLORE ZIP FILE と DOWNLOAD ZIP
+FILEのボタンが表示されます。
+一旦はダウンロードせず、EXPLORE
+ZIP FILE を選択してテンプレートの中身を開いてみます。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション, Teams
 自動的に生成された説明](../media/image84.png)
@@ -62,7 +56,7 @@ ZIP FILE」 としてテンプレートの中身を\
 上記の画面を確認後、右下の CLOSE をクリックし、EXPLORE 画面を閉じます。
 既存のApplication Acceleratorテンプレートを利用するデモは以上です。
 
-ここからは、手動で新しいApplication Accelerators
+次に、手動で新しいApplication Accelerators
 テンプレートを登録します。Github 上の Repositoryを使って App Accelerator に登録します。
 
 ```execute
@@ -80,16 +74,11 @@ tanzu accelerator create tap-python-recipies --git-repository ${GIT_REPOSITORY_U
 ファイルです。以下のような項目から構成されています。
 
 -   displayName : TAP GUI -\> Generate Acceleratorsで表示される名前
-
 -   description： より詳細な説明
-
 -   iconUrl: アイコン画像を指す URL
-
 -   options: (inputType: select) ドロップダウンリストを定義
-
 -   engine:
-    ドロップダウンリストで選択された内容に基づいて定義されたアクションを実行(今回の場合は、github
-    リポジトリのサブフォルダを含める)
+    ドロップダウンリストで選択された内容に基づいて定義されたアクションを実行(今回の場合は、githubリポジトリのサブフォルダを含める)
 
 tanzu cli とTAP GUI
 からどのように表示されているかを確認します。再度、app accelerator
@@ -116,44 +105,23 @@ Framework \* ドロップダウンリストを展開します。
 メール
 自動的に生成された説明](../media/image89.png)
 
-すると、ハンズオンの各章のタイトルが表示されているのを確認できます。
-「シンプルなWebアプリケーションのデプロイ」をクリックし、NEXT
-ボタンをクリックします。
 
-最後に GENERATE ACCELERATOR
-ボタンをクリックし、「シンプルなWebアプリケーションのデプロイ」
-テンプレートを作成します。
-
-![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image90.png)
-
-EXPLORE ZIP FILE をクリックすると、git clone でダウンロードしていた
-「シンプルなWebアプリケーションのデプロイ」の Python
-コードを確認できます。
-
-続いて、Application Accelerators の Create 画面-\> TAP Python Recipies
-の CHOOSE を再度クリックし、\
-今度は 「GitOps モードのデプロイ」を選択します。また、Branch-name \* と
+”GitOps モードのデプロイ" 選択します。また、Branch-name \* と
 Owner-name \* を下記のように変更します。
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
 メール
 自動的に生成された説明](../media/image91.png)
 
-NEXT ボタン -\> GENERATE ACCELERATOR ボタンをクリックします。
-
-「EXPLORE ZIP FILE」
-をクリックし、生成されたテンプレートの中身を確認します。
-
+NEXT ボタン -\> GENERATE ACCELERATOR ボタンを選択します。
+EXPLORE ZIP FILE を選択し、生成されたテンプレートの中身を確認します。
 gitops_repository_owner と gitops_branch
 が反映されているのを確認できます。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション, メール
 自動的に生成された説明](../media/image92.png)
 
-このように、企業はアプリケーションの標準テンプレートを用意し、Application
-Accelerator に登録することで、開発者は都度
-Githubなどのリポジトリからコードをダウンロード、YAML
-ファイルを個別に編集する必要なく、開発にすぐ着手できます。
+このように、標準テンプレートを用意し、Application
+Accelerator に登録することで、基盤に関わるパラメーターを意識することなく、開発に着手できます。
 
 Application Acceleratorのデモは以上です。

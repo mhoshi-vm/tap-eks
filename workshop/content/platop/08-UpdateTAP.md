@@ -1,7 +1,6 @@
 
 Tanzu Mission Control （TMC）を使用し、TAP を1.5.0 から1.5.1
 にアップグレードする手順を紹介します。
-
 TMC からOpenShift クラスタを選択し、Tanzu Repositories を選択します。
 
 ![A screenshot of a computer Description automatically generated with
@@ -38,5 +37,4 @@ Versionを選択します。バージョン1.5.1 をクリックし、CONFIRM
 ![グラフィカル ユーザー インターフェイス, アプリケーション, メール
 自動的に生成された説明](../media/image36.png)
 
-以上でアップグレードが完了しました。なお、これまでのデプロイされたインスタンスもこのアップデートによってどうなったかをご確認ください。\
-(ハンズオン中に解説)
+以上でアップグレードが完了しました。

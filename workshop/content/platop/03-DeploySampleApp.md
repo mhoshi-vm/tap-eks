@@ -38,6 +38,8 @@ tanzu apps workload apply hello-nodejs-test-scan \
 ```
 
 以下のコマンドで、デプロイが完了したことを確認します。
+(完了まで、5分ほどかかりますのでその間に何度か実行してください。現在の進捗は `kubectl get po`で確認ができます。)
+
 
 ```execute
 tanzu apps workload list
@@ -47,8 +49,7 @@ tanzu apps workload list
 ![A picture containing text, screenshot, font Description automatically
 generated](../media/image5.png)
 
-以下のコマンドで、Workload の URLを確認します。
-(curlコマンドで叩いてください)
+ステータスが両者共に`Ready`になったら以下のコマンドで、Workload の URLを確認します。
 
 ```execute
 kubectl get ksvc
@@ -56,7 +57,7 @@ kubectl get ksvc
 
 ![](../media/image6.png)
 
-curl -k コマンドで上記のURL にアクセスしてみます。
+curl コマンドで上記のURL にアクセスしてみます。
 
 ```execute
 curl -k https://hello-nodejs.${YOUR_NAMESPACE}.tap.ok-tap.net
