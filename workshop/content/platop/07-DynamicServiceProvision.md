@@ -131,6 +131,30 @@ kubectl get ns  | grep ${YOUR_NAMESPACE}-claim
 
 ![](../media/image30.png)
 
+postgresql のデータベースに書き込みがされていることを確認します。
+
+```execute
+DB_NAME=$(kubectl get classclaim ${YOUR_NAMESPACE}-claim -ojsonpath='{.status.provisionedResourceRef.name}')
+kubectl exec -ti -n ${DB_NAME} ${DB_NAME}-0 -- bash -c 'PGPASSWORD=${POSTGRES_PASSWORD} /opt/bitnami/postgresql/bin/psql -U postgres ${POSTGRES_DB} -c "SELECT * FROM vehicle"'
+```
+
+以下のように、データベースの中身が表示され、さきほどの `curl` との出力が一致することが確認できます。
+
+```
+id |  name   
+----+---------
+ 1 | Avalon
+ 2 | Corolla
+ 3 | Crown
+ 4 | Levin
+ 5 | Yaris
+ 6 | Vios
+ 7 | Glanza
+ 8 | Aygo
+(8 rows)
+```
+
+
 Bitnami Services
 以外にも動的サービスを登録することで様々なバックエンドサービスを self
 serviceで利用可能です。Bitnami Services
