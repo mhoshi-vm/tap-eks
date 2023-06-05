@@ -5,8 +5,8 @@ kind: Workshop
 metadata:
   name: tap-openshift
 spec:
-  title: TAP on OpenShift
-  description: TAP on OpenShift seminar
+  title: TAP for Plat/App Operators
+  description: TAP for Plat/App Operators
   url: https://github.com/mhoshi-vm/tap-openshift-jp
   content:
     image: ghcr.io/mhoshi-vm/tap-openshift-lc:latest
