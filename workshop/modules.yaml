@@ -23,9 +23,6 @@ modules:
   platop/07-DynamicServiceProvision:
     name: (全) Service Toolkit 動的プロビジョン機能の利用
     exit_sign: 次のコンテンツ
-  platop/08-UpdateTAP:
-    name: (個) TAPのアップデート(1.5.0 > 1.5.1)
-    exit_sign: 次のコンテンツ
   appop/section:
     name: For App Operator 編
     exit_sign: 次のコンテンツ

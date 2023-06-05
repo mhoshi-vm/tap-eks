@@ -131,7 +131,7 @@ Operator の際に紹介します。
 一度不要なResourceClaim は削除します。
 
 ```execute
-tanzu services resource-claims delete ${YOUR_NAMESPACE}-claim -n default
+tanzu services resource-claims delete ${YOUR_NAMESPACE}-claim -n default -y
 ```
 
 さて、先程作成した resource claim を使って Workload をデプロイします。

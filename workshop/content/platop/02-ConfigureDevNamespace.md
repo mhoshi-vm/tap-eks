@@ -64,8 +64,6 @@ Application Platform 1.4 から提供する Namespace Provisioner
 最後に、For App Operator編で利用することとなる、開発者用のKubeconfig
 ファイルを生成します。
 
-このサービスアカウントに紐づいた 開発者用のkubeconfig を作成します。
-
 ```execute
 TOKEN=`kubectl get secret app-editor-token -o jsonpath='{.data.token}' | base64 --d`
 cp ~/.kube/config /opt/code-server/kubeconfig

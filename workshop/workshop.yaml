@@ -10,7 +10,6 @@ modules:
     -  platop/05-PrepareStk
     -  platop/06-ServiceBinding
     -  platop/07-DynamicServiceProvision
-    -  platop/08-UpdateTAP
     -  appop/section
     -  appop/09-PrepareIDE
     -  appop/10-SimpleWeb

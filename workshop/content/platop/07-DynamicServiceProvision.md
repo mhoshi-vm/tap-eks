@@ -80,6 +80,7 @@ tanzu apps workload apply hello-vehicle-with-db-dynamic \
   --git-branch main \
   --type web \
   --build-env BP_JVM_VERSION=17 \
+  --env "JAVA_TOOL_OPTIONS=-Dmanagement.health.probes.enabled='false'" \
   --service-ref vehicle=services.apps.tanzu.vmware.com/v1alpha1:ClassClaim:${YOUR_NAMESPACE}-claim \
   --annotation autoscaling.knative.dev/minScale=1 \
   -y

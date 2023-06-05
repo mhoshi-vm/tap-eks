@@ -29,8 +29,7 @@ tanzu service class list
 ```
 
 ![テキスト
-自動的に生成された説明](../media/image12.png){width="7.497534995625546in"
-height="1.4599879702537182in"}
+自動的に生成された説明](../media/image12.png)
 
 手動で Service Class を作ります。以下のコマンドを実行します。
 
