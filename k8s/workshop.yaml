@@ -17,6 +17,12 @@ spec:
       value: #@ data.values.tanzunet
     - name: TAP_VERSION
       value: #@ data.values.tapversion
+    patches:
+      containers:
+      - name: workshop
+        resources:
+          requests:
+            cpu: 0.5
     applications:
       editor:
         enabled: true
