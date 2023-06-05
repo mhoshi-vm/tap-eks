@@ -21,42 +21,7 @@ TAP GUI からも確認できます。
 ![グラフィカル ユーザー インターフェイス, アプリケーション
 自動的に生成された説明](../media/image80.png)
 
-TAP GUI からデフォルトで提供している Application Accelerators
-を一つ選んで雛形テンプレートを作成します。Tanzu Java Web App を選択し、CHOOSE を選択します。
-なお、画面ショット数字の `9`
-はこの雛形テンプレートを何回ダンロードしているかを示しています。
-
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
-自動的に生成された説明](../media/image81.png)
-
-今回は Java version として Java11 を選択し、Next を選択します。
-
-![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image82.png)
-
-GENERATE ACCELERATOR を選択します。
-
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
-メール
-自動的に生成された説明](../media/image83.png)
-
-しばらく待つと、EXPLORE ZIP FILE と DOWNLOAD ZIP
-FILEのボタンが表示されます。
-一旦はダウンロードせず、EXPLORE
-ZIP FILE を選択してテンプレートの中身を開いてみます。
-
-![グラフィカル ユーザー インターフェイス, アプリケーション, Teams
-自動的に生成された説明](../media/image84.png)
-
-選んだ Java11 が workload.yaml に反映されているのを確認できます。
-
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
-自動的に生成された説明](../media/image85.png)
-
-上記の画面を確認後、右下の CLOSE をクリックし、EXPLORE 画面を閉じます。
-既存のApplication Acceleratorテンプレートを利用するデモは以上です。
-
-次に、手動で新しいApplication Accelerators
+手動で新しいApplication Accelerators
 テンプレートを登録します。Github 上の Repositoryを使って App Accelerator に登録します。
 
 ```execute

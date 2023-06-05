@@ -14,48 +14,7 @@ LiveUpdateを有効にすることで、コンテナのビルド時間をバイ�
 
 このハンズオンでは、[Python](https://paketo.io/docs/howto/python/#enable-process-reloading)のガイドに従ったコードでハンズオンを行います。
 
-#### 従来型コードでLive Update
-
-最初に従来型のコードで実施します。VSCode ServerをOpen Folder
-から以下のディレクトリーを開きます。
-
--   /home/eduk8s/tap-python-recipies/python-rest-liveupdate/
-
-左ペインより"Tanzu Live Update Start" を実行します。
-
-![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image59.png)
-
-デプロイ完了後、Ports を開き、8080 portの"Open in Browser"を開きます。
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](../media/image60.png)
-
-そのURL をクリックし、HelloWorldが表示されることを確認します。
-
-![](../media/image61.png)
-
-server.py を開いて、 Hello Tanzu! に変更してみます。
-
-![Graphical user interface, application, email Description automatically
-generated](../media/image62.png)
-
-数秒で、コードに反映されることを確認してください。\
-![](../media/image63.png)
-
-デモ終了後は、一旦 Live Update を終了します。
-
-![](../media/image64.png)
-
-コードを参照して以下の点を確認してください。
-
--   Procfile
-    が、[コミュニティガイドに従った書き方](https://paketo.io/docs/howto/python/#setting-a-reloadable-start-command)になっていること
--   Tiltfileが存在しており、どのパスのファイルをモニターするかなどが記載されていること
-
-#### Functions アプリケーションでLiveUpdate
-
-次にFunctionアプリケーションでも実施してみます。VSCode ServerをOpen
+VSCode ServerをOpen
 Folder から以下のディレクトリーを開きます。
 
 -   /home/eduk8s/tap-python-recipies/python-func-liveupdate/

@@ -13,7 +13,6 @@ modules:
     -  appop/section
     -  appop/09-PrepareIDE
     -  appop/10-SimpleWeb
-    -  appop/11-Functions
     -  appop/12-TestScan
     -  appop/13-DynamicAPIRegister
     -  appop/14-ServiceBindings
