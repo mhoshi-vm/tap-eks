@@ -15,9 +15,6 @@ tanzunet: ""
 #@schema/desc "tap version"
 tapversion: "1.5.1"
 
-#@schema/desc "tap version"
-giteaimage: gitea/gitea
-
 #@schema/desc "TLS config"
 tls:
   enabled: false
