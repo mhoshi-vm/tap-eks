@@ -18,7 +18,7 @@ git clone https://github.com/mhoshi-vm/tap-python-recipies
 以下のコマンドを実行して、自身のNamespace名を確認します。この値はログインユーザーごとに異なるものが設定されています。
 
 ```execute
-kubectl config view --minify -o jsonpath='{..namespace}'
+echo `kubectl config view --minify -o jsonpath='{..namespace}'`
 ```
 
 
