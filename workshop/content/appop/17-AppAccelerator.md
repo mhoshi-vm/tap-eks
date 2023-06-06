@@ -60,23 +60,17 @@ tap-python-recipies が登録されているのを確認できます。
 
 TAP GUI からも新規で登録した tap-python-recipiesを確認します。
 
-![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image88.png)
+![](../media/2023-06-06T04-25-26.png)
 
 CHOOSE ボタンをクリックし、Generate Accelerators 画面でChoose Python
 Framework \* ドロップダウンリストを展開します。
 
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
-メール
-自動的に生成された説明](../media/image89.png)
-
+![](../media/2023-06-06T04-28-12.png)
 
 ”GitOps モードのデプロイ" 選択します。また、Branch-name \* と
 Owner-name \* を下記のように変更します。
 
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション,
-メール
-自動的に生成された説明](../media/image91.png)
+![](../media/2023-06-06T04-29-34.png)
 
 NEXT ボタン -\> GENERATE ACCELERATOR ボタンを選択します。
 EXPLORE ZIP FILE を選択し、生成されたテンプレートの中身を確認します。
