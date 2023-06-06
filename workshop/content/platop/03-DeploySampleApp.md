@@ -1,14 +1,13 @@
 
 
-Developer
-Namespaceの準備ができたので引き続き、サンプルアプリケーションをデプロイします。
+サンプルアプリケーションをデプロイします。
 
 TERMINAL で作業します。
 
 ![テキスト
 自動的に生成された説明](../media/image2.png)
 
-自身のネームスペースの値を再度設定してください。
+自身のネームスペースの値を変数に設定してください。
 
 ```execute
 export YOUR_NAMESPACE=`kubectl config view --minify -o jsonpath='{..namespace}'`
@@ -25,7 +24,7 @@ tanzu apps workload apply hello-nodejs \
   -y
 ```
 
-待ち時間が発生するので続いて、テスト・スキャンありのワークロードを作成します。赤字により、テストおよびスキャンが行われます。
+待ち時間が発生するので続いて、テスト・スキャンありのワークロードを作成します。`apps.tanzu.vmware.com/has-tests=true` ラベルにより、テストおよびスキャンが行われます。
 
 ```execute
 tanzu apps workload apply hello-nodejs-test-scan \
@@ -69,7 +68,6 @@ curl -k https://hello-nodejs-test-scan.${YOUR_NAMESPACE}.tap.ok-tap.net
 サンプルアプリケーションのデプロイは以上ですが、以下のコマンドなどを行いながら、ワークロードを確認してください。
 
 -   tanzu apps workload get \<対象のワークロード\>
-
 -   TAP GUI での比較
 
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション自動的に生成された説明](../media/image8.png)

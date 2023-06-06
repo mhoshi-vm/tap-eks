@@ -43,7 +43,7 @@ spec:
 kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/python="true"
 ```
 
-Namespaceにこのラベルを設定することにより、Developer Namespace が python
+Namespaceに特定のラベルを設定することにより、Developer Namespace が python
 の値を識別して、それ専用のパイプラインが登録されます。今回の環境では以下の該当行が適用されます。
 
 https://github.com/mhoshi-vm/tap-openshift-jp/blob/main/dev_namespace/overlay.yaml#L7-L57
@@ -114,7 +114,7 @@ Open Folder から以下のフォルダーを開きます。
 ![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
 自動的に生成された説明](../media/image47.png)
 
-Workload.yaml を開き、" apps.tanzu.vmware.com/has-tests: true"
+Workload.yaml を開き、` apps.tanzu.vmware.com/has-tests: true`
 が指定されていることを確認します。これによりテストおよびスキャンを実行するSupplyChainが実行されます。
 
 右クリック "Tanzu Apply Workload" を実行します。\

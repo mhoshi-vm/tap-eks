@@ -6,7 +6,7 @@ TERMINAL で作業します。
 ![テキスト
 自動的に生成された説明](../media/image2.png)
 
-自身のネームスペースの値を再度設定してください。
+自身のネームスペースの値を変数に設定してください。
 
 ```execute
 export YOUR_NAMESPACE=`kubectl config view --minify -o jsonpath='{..namespace}'`
@@ -32,7 +32,7 @@ kubectl label namespaces ${YOUR_NAMESPACE} apps.tanzu.vmware.com/tap-ns=""
 kubectl annotate ns ${YOUR_NAMESPACE} secretgen.carvel.dev/excluded-from-wildcard-matching-
 ```
 
-しばらく、まつと、以下のように、先ほど失敗したコマンドが成功するようになります。
+しばらくまつと、以下のように、先ほど失敗したコマンドが成功するようになります。
 
 ```execute
 kubectl get secret registries-credentials

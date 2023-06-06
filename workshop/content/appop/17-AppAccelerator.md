@@ -1,7 +1,7 @@
 ここからは TAP のカタログ機能である Application Accelerator
 について紹介します。
 
-この機能を使うことで、企業はアプリケーションの標準テンプレート用意し、開発者はビジネスロジックのみに専念できます。詳細は以下のブログも参考ください。
+この機能を使うことで、アプリケーションの標準テンプレート用意することできます。詳細は以下のブログも参考ください。
 
 [Tanzu Application Platformでアプリの雛形をつくろう：Application
 Accelerator](https://blogs.vmware.com/vmware-japan/2022/02/lets-build-catalogs-tanzu-application-platform-appaccelerator.html)
@@ -15,11 +15,6 @@ tanzu accelerator list
 
 ![グラフィカル ユーザー インターフェイス, テキスト
 自動的に生成された説明](../media/image79.png)
-
-TAP GUI からも確認できます。
-
-![グラフィカル ユーザー インターフェイス, アプリケーション
-自動的に生成された説明](../media/image80.png)
 
 手動で新しいApplication Accelerators
 テンプレートを登録します。Github 上の Repositoryを使って App Accelerator に登録します。

@@ -5,7 +5,7 @@ TERMINAL で作業します。
 ![テキスト
 自動的に生成された説明](../media/image2.png)
 
-自身のネームスペースの値を再度設定してください。
+自身のネームスペースの値を変数に設定してください。
 
 ```execute
 export YOUR_NAMESPACE=`kubectl config view --minify -o jsonpath='{..namespace}'`

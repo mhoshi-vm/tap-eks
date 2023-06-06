@@ -20,8 +20,7 @@ generated](../media/image37.png)
 AppOperator 編ではこの、"SourceCode Image"
 を明示的に設定する必要があり、これは各Editorや端末ごとに設定します。
 
-**⚠️　今後この SourceCode Image
-が不要なエンハンスがなされる予定であり、これから実施する手順は将来不要になる予定です。⚠️**
+**⚠️　SourceCode Imageが将来不要になる予定です。⚠️**
 
 Editor で作業します。
 
@@ -38,10 +37,7 @@ Tanzu: Source Image は  **okddemo.azurecr.io/tap/source-codes**
 ![A screenshot of a computer Description automatically generated with
 medium confidence](../media/image39.png)
 
-最後にターミナルより以下を実行してください。
-
-今回はコンテナレジストリとして ghcr.io
-を使うため、以下のコマンドを実行し、ghcr.io にログインします。
+最後に以下のコマンドを実行し、コンテナレジストリにログインします。
 
 ```execute
 docker login okddemo.azurecr.io

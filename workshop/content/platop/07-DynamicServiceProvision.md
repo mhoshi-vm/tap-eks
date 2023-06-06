@@ -1,15 +1,7 @@
 
-先程までは、静的 Sevice
-Toolkitサービスプロビジョニングについて紹介しました。バックエンドサービスは事前に
-Platform Operator
-チーム側で用意し、パスワード等の認証情報は抽象化される形で開発チームに
-Resource
-Claim情報として渡します。その後、開発チームからは事前に用意したResource
-Claim を使って Workload
-をデプロイしバックエンドサービスとつなげるのを実現できました。
-
-ところが、Platform
-Operatorがワンステップ"事前に用意する"が考慮点になりうります。本番環境など、慎重な設計をした外部リソースにはこの手段が望ましいと思いますが、検証やステージングにおいては、Platform
+先程までは、静的な Sevice
+Toolkitサービスプロビジョニングについて紹介しました。
+本番環境など、慎重な設計をした外部リソースにはこの手段が望ましいと思いますが、検証やステージングにおいては、Platform
 Operator チームがボトルネックになる考慮点がでてきます。
 
 そこで、動的サービスプロビジョニングについて紹介します。TAP1.5
@@ -27,15 +19,14 @@ export YOUR_NAMESPACE=`kubectl config view --minify -o jsonpath='{..namespace}'`
 ```
 
 
-今回はBitnami Services
-経由でプリインストールされたバックエンドサービスを利用します。以下のコマンドで利用できるサービスを確認します。
+今回はプリインストールされたBitnami Services　を利用します。以下のコマンドで利用できるサービスを確認します。
 
 ```execute
 tanzu service class list
 ```
 
 今回は postgresql
-を利用するため、下記のコマンドを実行し利用できるバックエンドサービスのパラメータを確認します。
+を利用するため、下記のコマンドを実行し利用できるサービスのパラメータを確認します。
 
 
 ```execute
@@ -70,7 +61,7 @@ Ready: True
 
 の情報を確認できます。
 
-この状態で、静的プロビジョニングで利用していた Workload
+この状態で、Workload
 を再度デプロイします。**ResourceClaimではなくClassClaimを指定します**。
 
 ```execute
@@ -113,10 +104,7 @@ curl -k https://hello-vehicle-with-db-dynamic.${YOUR_NAMESPACE}.tap.ok-tap.net/v
 ![テキスト
 自動的に生成された説明](../media/image28.png)
 
-今回はBitnami Services
-経由でプリインストールされたバックエンドサービスを利用して self service
-の形でDB の作成をClass claim
-を作成する形で実現しました。バックエンドサービスとして動いている
+サービスとして動いている
 postgresql は下記のコマンドで確認できます。
 
 まず、Namespace を確認し、該当 namespace をPod を確認します。
@@ -154,11 +142,8 @@ id |  name
 (8 rows)
 ```
 
-
-Bitnami Services
-以外にも動的サービスを登録することで様々なバックエンドサービスを self
-serviceで利用可能です。Bitnami Services
-経由でプリインストールされたバックエンドサービス以外を動的プロビジョニングサービスとして利用したい場合は、個別にサービスを登録する必要があります。関連手順は下記です。\
+動的サービスはカスタマイズすることで様々なバックエンドサービスを self
+serviceで利用可能です。カスタマイズした動的プロビジョニングサービスとして利用したい場合は、個別にサービスを登録する必要があります。関連手順は下記です。\
 \
 <https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/services-toolkit-tutorials-setup-dynamic-provisioning.html>
 

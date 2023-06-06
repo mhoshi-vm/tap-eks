@@ -1,4 +1,4 @@
-通常のLinuxサーバー上で起動するような従来型のアプリケーションをTAP経由でデプロイします。
+シンプルなウェブアプリケーションをTAP経由でデプロイします。
 メニューよりOpen Folder を選択します。
 
 ![Graphical user interface, application Description automatically
