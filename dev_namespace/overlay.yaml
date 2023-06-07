@@ -32,8 +32,12 @@ spec:
         type: string
       spec: null
       steps:
-      - image: okddemo.azurecr.io/python:latest
-        name: test
+      - name: test
+        #@ if hasattr(data.values, "python_test_image"):
+        image: #@ data.values.python_test_image
+        #@ else:
+        image: okddemo.azurecr.io/python:latest
+        #@ end
         resources: {}
         script: |-
           set -ex
