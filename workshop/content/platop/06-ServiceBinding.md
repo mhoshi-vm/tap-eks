@@ -53,9 +53,14 @@ kubectl get secret -n $YOUR_NAMESPACE ${YOUR_NAMESPACE}-db
 
 ![](../media/image15.png)
 
-これは、Postgresの認証情報が特定のNamespaceでしか利用可能でない状態を表しており、このままでは
-Developer
-ネームスペースでは利用ができないです。以下のコマンドを実行します。
+これは、Postgresの認証情報が特定のネームスペースでしか利用可能でない状態を表しており、このままでは自身のネームスペースでは利用ができないです。ここで登場するのが Service Claim という概念です。以下のコマンドを実行します。
+
+```execute
+tanzu service claimable list --class postgres
+```
+
+上記のリストはclaimable（クレーム可能）な一覧を表示しています。以下のコマンドでこれをクレームします。
+
 
 ```execute
 tanzu service claim create ${YOUR_NAMESPACE}-claim  \
@@ -91,7 +96,13 @@ tanzu services resource-claims get ${YOUR_NAMESPACE}-claim
 automatically
 generated](../media/image18.png)
 
-ここで、同じ claim を別のネームスペース(default)で作ろうと試みてみます。
+一度クレームを行うと、以下のコマンドでclaimable(クレーム可能な一覧）からも対象がきえているかと思います。
+
+```execute
+tanzu service claimable list --class postgres
+```
+
+ここで、上記の出力を無視して、同じ claim を別のネームスペース(default)で作ろうと試みてみます。
 
 ```execute
 tanzu service claim create ${YOUR_NAMESPACE}-claim  \
