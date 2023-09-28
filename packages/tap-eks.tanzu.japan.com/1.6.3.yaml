@@ -29,6 +29,13 @@ spec:
           type: string
           description: tap version
           default: 1.6.3
+        allowcidrs:
+          type: array
+          description: allow cidrs
+          items:
+            type: string
+            default: 1.1.1.1/32
+          default: [ ]
         tls:
           type: object
           additionalProperties: false

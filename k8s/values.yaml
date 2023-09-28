@@ -15,6 +15,9 @@ tanzunet: ""
 #@schema/desc "tap version"
 tapversion: "1.6.3"
 
+#@schema/desc "allow cidrs"
+allowcidrs: [ "1.1.1.1/32" ]
+
 #@schema/desc "TLS config"
 tls:
   enabled: false
