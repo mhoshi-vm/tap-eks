@@ -7,10 +7,10 @@ metadata:
 spec:
   title: TAP for Plat/App Operators
   description: TAP for Plat/App Operators
-  url: https://github.com/mhoshi-vm/tap-eks-jp
+  url: https://github.com/mhoshi-vm/tap-eks
   content:
     image: ghcr.io/mhoshi-vm/tap-eks-lc:latest
-    files: github.com/mhoshi-vm/tap-eks-jp?ref=main
+    files: github.com/mhoshi-vm/tap-eks?ref=zdc
   session:
     env:
     - name: TANZUNET_TOKEN

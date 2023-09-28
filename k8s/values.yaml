@@ -13,7 +13,7 @@ hostname: tap-eks
 tanzunet: "" 
 
 #@schema/desc "tap version"
-tapversion: "1.5.1"
+tapversion: "1.6.3"
 
 #@schema/desc "TLS config"
 tls:
