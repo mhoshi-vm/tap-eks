@@ -28,7 +28,7 @@ spec:
         tapversion:
           type: string
           description: tap version
-          default: 1.5.1
+          default: 1.6.3
         tls:
           type: object
           additionalProperties: false
@@ -47,7 +47,7 @@ spec:
     spec:
       fetch:
       - git:
-          url: https://github.com/mhoshi-vm/tap-eks-jp
+          url: https://github.com/mhoshi-vm/tap-eks
           ref: origin/main
           subPath: k8s
       template:
