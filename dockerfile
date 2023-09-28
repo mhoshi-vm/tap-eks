@@ -51,18 +51,21 @@ RUN wget -q -O OpenJDK.tar.gz https://download.bell-sw.com/java/${JDK_VERSION}/b
 RUN chmod +x /etc/profile.d/00-java.sh
 
 # Tanzu
-ENV TANZU_VERSION=0.29.0
-RUN wget -q https://github.com/vmware-tanzu/tanzu-framework/releases/download/v${TANZU_VERSION}/tanzu-framework-linux-amd64.tar.gz && \
-    tar xzvf tanzu-framework-linux-amd64.tar.gz && \
-    sudo install cli/core/v${TANZU_VERSION}/tanzu-core-linux_amd64 /usr/local/bin/tanzu && \
-    tanzu plugin install --local cli all && \
-    rm -fr tanzu-framework* cli
+ENV TANZU_VERSION=1.0.0
+RUN apt update && \
+    apt install -y ca-certificates curl gpg && \
+    mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://packages.vmware.com/tools/keys/VMWARE-PACKAGING-GPG-RSA-KEY.pub | sudo gpg --dearmor -o /etc/apt/keyrings/tanzu-archive-keyring.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/tanzu-archive-keyring.gpg] https://storage.googleapis.com/tanzu-cli-os-packages/apt tanzu-cli-jessie main" | sudo tee /etc/apt/sources.list.d/tanzu.list && \
+    apt update && \
+    apt install -y tanzu-cli=${TANZU_VERSION} && \
+    tanzu config eula accept && tanzu ceip-participation set true
 
 ENV TANZU_APPS_CLI_PLUGIN_VERSION=0.12.1
 RUN wget -q https://github.com/vmware-tanzu/apps-cli-plugin/releases/download/v${TANZU_APPS_CLI_PLUGIN_VERSION}/tanzu-apps-plugin-linux-amd64-v${TANZU_APPS_CLI_PLUGIN_VERSION}.tar.gz && \
     mkdir tanzu-apps-plugin && \
     tar xzvf tanzu-apps-plugin-linux-amd64-v${TANZU_APPS_CLI_PLUGIN_VERSION}.tar.gz -C tanzu-apps-plugin && \
-    tanzu plugin install apps --local tanzu-apps-plugin --version v${TANZU_APPS_CLI_PLUGIN_VERSION} && \
+    tanzu plugin install apps --local tanzu-apps-plugin/linux/amd64 --version v${TANZU_APPS_CLI_PLUGIN_VERSION} && \
     rm -fr tanzu-apps-plugin*
 
 # Maven
