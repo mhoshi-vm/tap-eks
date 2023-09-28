@@ -1,12 +1,12 @@
 
 # kubectl get ds -n learningcenter learningcenter-prepull -o=jsonpath="{.spec.template.spec.initContainers[0].image}"
-FROM registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:c184e9399d2385807833be0a9f1718c40caa142b6e1c3ddf64fa969716dcd4e3
+FROM registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:39a5afe9604b9a36c14deda351ab73b53d15bd53085d89829838671cb867f6c4
 
-# # All the direct Downloads need to run as root as they are going to /usr/local/bin
+# All the direct Downloads need to run as root as they are going to /usr/local/bin
 USER root
 
 # Visual Studio Code Extentions
-ENV CS_VERSION=4.12.0
+ENV CS_VERSION=4.17.0
 RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version=${CS_VERSION}
 RUN cp -rf /usr/lib/code-server/* /opt/code-server/
 RUN rm -rf /usr/lib/code-server /usr/bin/code-server
@@ -51,22 +51,25 @@ RUN wget -q -O OpenJDK.tar.gz https://download.bell-sw.com/java/${JDK_VERSION}/b
 RUN chmod +x /etc/profile.d/00-java.sh
 
 # Tanzu
-ENV TANZU_VERSION=0.29.0
-RUN wget -q https://github.com/vmware-tanzu/tanzu-framework/releases/download/v${TANZU_VERSION}/tanzu-framework-linux-amd64.tar.gz && \
-    tar xzvf tanzu-framework-linux-amd64.tar.gz && \
-    sudo install cli/core/v${TANZU_VERSION}/tanzu-core-linux_amd64 /usr/local/bin/tanzu && \
-    tanzu plugin install --local cli all && \
-    rm -fr tanzu-framework* cli
+ENV TANZU_VERSION=1.0.0
+RUN apt update && \
+    apt install -y ca-certificates curl gpg && \
+    mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://packages.vmware.com/tools/keys/VMWARE-PACKAGING-GPG-RSA-KEY.pub | sudo gpg --dearmor -o /etc/apt/keyrings/tanzu-archive-keyring.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/tanzu-archive-keyring.gpg] https://storage.googleapis.com/tanzu-cli-os-packages/apt tanzu-cli-jessie main" | sudo tee /etc/apt/sources.list.d/tanzu.list && \
+    apt update && \
+    apt install -y tanzu-cli=${TANZU_VERSION} && \
+    tanzu config eula accept && tanzu ceip-participation set true
 
-ENV TANZU_APPS_CLI_PLUGIN_VERSION=0.11.1
+ENV TANZU_APPS_CLI_PLUGIN_VERSION=0.12.1
 RUN wget -q https://github.com/vmware-tanzu/apps-cli-plugin/releases/download/v${TANZU_APPS_CLI_PLUGIN_VERSION}/tanzu-apps-plugin-linux-amd64-v${TANZU_APPS_CLI_PLUGIN_VERSION}.tar.gz && \
     mkdir tanzu-apps-plugin && \
     tar xzvf tanzu-apps-plugin-linux-amd64-v${TANZU_APPS_CLI_PLUGIN_VERSION}.tar.gz -C tanzu-apps-plugin && \
-    tanzu plugin install apps --local tanzu-apps-plugin --version v${TANZU_APPS_CLI_PLUGIN_VERSION} && \
+    tanzu plugin install apps --local tanzu-apps-plugin/linux/amd64 --version v${TANZU_APPS_CLI_PLUGIN_VERSION} && \
     rm -fr tanzu-apps-plugin*
 
 # Maven
-ENV MAVEN_VERSION=3.9.2
+ENV MAVEN_VERSION=3.9.4
 RUN wget -q -O maven.tar.gz http://ftp.riken.jp/net/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz && \
     tar xzf maven.tar.gz && \
     sudo mv apache-maven-* /opt/ && \
@@ -76,7 +79,7 @@ RUN wget -q -O maven.tar.gz http://ftp.riken.jp/net/apache/maven/maven-3/${MAVEN
 RUN chmod +x /etc/profile.d/01-maven.sh
 
 # Kubectl
-ENV KUBECTL_VERSION 1.27.1
+ENV KUBECTL_VERSION 1.27.6
 RUN wget -q -O kubectl "https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" && \
     sudo install kubectl /usr/local/bin/ && \
     rm -f kubectl*
@@ -85,7 +88,7 @@ RUN wget -q -O kubectl "https://storage.googleapis.com/kubernetes-release/releas
 RUN wget -O- https://carvel.dev/install.sh | bash
 
 # Tilt
-ENV TILT_VERSION=0.32.3
+ENV TILT_VERSION=0.33.5
 RUN wget -q -O tilt.tar.gz https://github.com/tilt-dev/tilt/releases/download/v${TILT_VERSION}/tilt.${TILT_VERSION}.linux.x86_64.tar.gz && \
     tar xzf tilt.tar.gz && \
     sudo install tilt /usr/local/bin/ && \
@@ -97,20 +100,13 @@ RUN wget -q -O pivnet https://github.com/pivotal-cf/pivnet-cli/releases/download
     sudo install pivnet /usr/local/bin/ && \
     rm -f pivnet*
 
-# oc command
-ENV OC_VERSION=4.12.0-0.okd-2023-04-16-041331
-RUN wget https://github.com/okd-project/okd/releases/download/${OC_VERSION}/openshift-client-linux-${OC_VERSION}.tar.gz && \
-    tar xzvf openshift-client-linux-${OC_VERSION}.tar.gz && \
-    sudo install oc /usr/local/bin/ && \
-    rm kubectl  oc  openshift-client-linux-${OC_VERSION}.tar.gz
-
 RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null && \
     tanzu completion bash | sudo tee /etc/bash_completion.d/tanzu > /dev/null && \
     ytt completion bash | sudo tee /etc/bash_completion.d/ytt > /dev/null && \
     kapp completion bash | grep -v Succeeded | sudo tee /etc/bash_completion.d/kapp > /dev/null && \
     imgpkg completion bash | grep -v Succeeded | sudo tee /etc/bash_completion.d/imgpkg > /dev/null && \
     kctrl completion bash | grep -v Succeeded | sudo tee /etc/bash_completion.d/kctrl > /dev/null && \
-    tilt completion bash | sudo tee /etc/bash_completion.d/tilt > /dev/null 
+    tilt completion bash | sudo tee /etc/bash_completion.d/tilt > /dev/null
 
 RUN rm -f LICENSE README.md
 

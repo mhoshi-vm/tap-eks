@@ -7,13 +7,13 @@ sessions: 5
 domain: seminar.tanzu.japan.com
 
 #@schema/desc "hostname"
-hostname: tap-openshift
+hostname: tap-eks
 
 #@schema/desc "tanzunet token"
 tanzunet: "" 
 
 #@schema/desc "tap version"
-tapversion: "1.5.1"
+tapversion: "1.6.3"
 
 #@schema/desc "TLS config"
 tls:

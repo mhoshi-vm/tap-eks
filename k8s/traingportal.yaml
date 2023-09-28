@@ -16,5 +16,5 @@ spec:
       maximum: #@ data.values.sessions
   workshops:
   - expires: 240m
-    name: tap-openshift
+    name: tap-eks
     orphaned: 240m

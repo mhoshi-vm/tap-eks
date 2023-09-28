@@ -1,4 +1,4 @@
-name: マルチKubernetesをサポートするVMware Tanzu ~ OpenShift上のアプリケーション開発と運用を効率化
+name: マルチKubernetesをサポートするVMware Tanzu ~ eks上のアプリケーション開発と運用を効率化
 
 modules:
     activate:

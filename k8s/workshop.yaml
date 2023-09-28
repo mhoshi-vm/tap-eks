@@ -3,14 +3,14 @@
 apiVersion: learningcenter.tanzu.vmware.com/v1beta1
 kind: Workshop
 metadata:
-  name: tap-openshift
+  name: tap-eks
 spec:
   title: TAP for Plat/App Operators
   description: TAP for Plat/App Operators
-  url: https://github.com/mhoshi-vm/tap-openshift-jp
+  url: https://github.com/mhoshi-vm/tap-eks
   content:
-    image: ghcr.io/mhoshi-vm/tap-openshift-lc:latest
-    files: github.com/mhoshi-vm/tap-openshift-jp?ref=main
+    image: ghcr.io/mhoshi-vm/tap-eks-lc:latest
+    files: github.com/mhoshi-vm/tap-eks?ref=zdc
   session:
     env:
     - name: TANZUNET_TOKEN

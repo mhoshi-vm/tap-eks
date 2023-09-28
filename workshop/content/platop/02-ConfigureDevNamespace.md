@@ -53,7 +53,7 @@ Developer Namespace
 
 -   インストール時に設定したnamespace provisioner の値に対応した git
     レポジトリからのマニュフェスト。本ハンズオンでは、以下のURLより取得\
-    <https://github.com/mhoshi-vm/tap-openshift-jp/tree/main/dev_namespace>
+    <https://github.com/mhoshi-vm/tap-eks/tree/main/dev_namespace>
 
 より詳細は以下をご参照ください。
 

@@ -1,0 +1,56 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: tap-eks.tanzu.japan.com.1.6.3
+spec:
+  refName: tap-eks.tanzu.japan.com
+  version: 1.6.3
+  valuesSchema:
+    openAPIv3:
+      title: tap-eks.tanzu-jp values schema
+      properties:
+        sessions:
+          type: integer
+          description: session count
+          default: 5
+        domain:
+          type: string
+          description: domain
+          default: seminar.tanzu.japan.com
+        hostname:
+          type: string
+          description: hostname
+          default: tap-eks
+        tanzunet:
+          type: string
+          description: tanzunet token
+          default: ""
+        tapversion:
+          type: string
+          description: tap version
+          default: 1.6.3
+        tls:
+          type: object
+          additionalProperties: false
+          description: TLS config
+          properties:
+            enabled:
+              type: boolean
+              default: false
+            crt:
+              type: string
+              default: dummy
+            key:
+              type: string
+              default: dummy
+  template:
+    spec:
+      fetch:
+      - git:
+          url: https://github.com/mhoshi-vm/tap-eks
+          ref: origin/main
+          subPath: k8s
+      template:
+      - ytt: {}
+      deploy:
+      - kapp: {}

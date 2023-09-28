@@ -46,7 +46,11 @@ kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/python="true"
 Namespaceに特定のラベルを設定することにより、Developer Namespace が python
 の値を識別して、それ専用のパイプラインが登録されます。今回の環境では以下の該当行が適用されます。
 
+<<<<<<< HEAD
 https://github.com/mhoshi-vm/tap-openshift-jp/blob/main/dev_namespace/overlay.yaml#L7-L57
+=======
+https://github.com/mhoshi-vm/tap-eks-jp/blob/main/dev_namespace/overlay.yaml#L7-L57
+>>>>>>> zdc
 
 実行後(最大10分)まち、以下のコマンドを実行してください。
 

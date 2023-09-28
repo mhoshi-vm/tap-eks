@@ -12,7 +12,7 @@
 以下のコマンドを実行してサンプルのアプリケーションをダウンロードします。
 
 ```execute
-git clone https://github.com/mhoshi-vm/tap-python-recipies
+git clone https://github.com/mhoshi-vm/tap-php-recipies
 ```
 
 以下のコマンドを実行して、自身のNamespace名を確認します。**この値はログインユーザーごとに異なるものが設定されています。**
