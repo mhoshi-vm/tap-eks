@@ -1,16 +1,14 @@
 #@ load("@ytt:data", "data")
 #@ load("@ytt:overlay", "overlay")
-
----
-
-#@ load("@ytt:overlay", "overlay")
+#@ load("@ytt:struct", "struct")
 
 #@ def customize():
-  #@ if hasattr(data.values, "iamrole"):
 #@overlay/match by=overlay.subset({"kind": "ServiceAccount", "metadata": {"name": "default"}}), expects="0+"
 ---
 metadata:
   annotations:
-    eks.amazonaws.com/role-arn: #@ "arn:aws:iam::" + data.values.iamrole + ":role/tap-workload"
-  #@ end
+    #@overlay/match missing_ok=True
+    eks.amazonaws.com/role-arn: arn:aws:iam::739115551047:role/tap-workload
+    #@overlay/match missing_ok=True
+    datavalue: #@ str(struct.decode(data.values))
 #@ end
