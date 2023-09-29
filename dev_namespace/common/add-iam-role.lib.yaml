@@ -11,6 +11,6 @@
 ---
 metadata:
   annotations:
-    eks.amazonaws.com/role-arn: #@ "arn:aws:iam::" data.values.iamrole + ":role/tap-workload"
+    eks.amazonaws.com/role-arn: #@ "arn:aws:iam::" + data.values.iamrole + ":role/tap-workload"
   #@ end
 #@ end
