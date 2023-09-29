@@ -59,8 +59,8 @@ kubectl get ksvc
 curl コマンドで上記のURL にアクセスしてみます。
 
 ```execute
-curl -k https://hello-nodejs.${YOUR_NAMESPACE}.tap.ok-tap.net
-curl -k https://hello-nodejs-test-scan.${YOUR_NAMESPACE}.tap.ok-tap.net
+curl -k https://hello-nodejs.${YOUR_NAMESPACE}.handson.tappoc.lespaulstudioplus.info
+curl -k https://hello-nodejs-test-scan.${YOUR_NAMESPACE}.handson.tappoc.lespaulstudioplus.info
 ```
 
 ![](../media/image7.png)

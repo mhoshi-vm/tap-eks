@@ -20,13 +20,12 @@ export YOUR_NAMESPACE=`kubectl config view --minify -o jsonpath='{..namespace}'`
 **執筆時点で、ECR が、イメージプッシュ時にレジストリを自動生成ができないという強い制約があります。
 この点はコミュニティからも[強い機能追加](https://github.com/aws/containers-roadmap/issues/853)が依頼が発生しています。
 いずれにせよ、このハンズオンでは、デプロイをするアプリケーションのコンテナレジストリを事前に作る必要があります。
-この制約が煩わしく感じる場合は、現時点は他のコンテナレジストリを検討して下さい。**
+この制約が煩わしく感じる場合は、現時点は他のコンテナレジストリ(e.g Harbor, GitLab)を検討して下さい。**
 
 以下のコマンドで、 ECR へのレジストリ追加を行います。
 
 ```execute
-export ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
-export PREFIX="${ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/tappoc/workloads"
+export PREFIX="tappoc/workloads"
 for i in hello-nodejs hello-nodejs-test-scan hello-vehicle hello-vehicle-with-db
 do 
  if [[ -n $YOUR_NAMESPACE && -n $PREFIX ]]

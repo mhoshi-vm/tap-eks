@@ -3,7 +3,7 @@
 現時点では、tap gui
 のスキャニングを見ると以下のようにエラーになってしまいます。
 
-<https://tap-gui.tap.ok-tap.net/security-analysis>
+<https://tap-gui.handson.tappoc.lespaulstudioplus.info/security-analysis>
 
 ![A screenshot of a computer Description automatically generated with
 medium confidence](../media/image9.png)
@@ -43,7 +43,7 @@ tap_gui:
 low confidence](../media/image10.png)
 Apply 後、再度スキャニング画面をみると該当の結果がみれると思います。
 
-<https://tap-gui.tap.ok-tap.net/security-analysis>
+<https://tap-gui.handson.tappoc.lespaulstudioplus.info/security-analysis>
 
 ![A screenshot of a computer Description automatically generated with
 medium confidence](../media/image11.png)

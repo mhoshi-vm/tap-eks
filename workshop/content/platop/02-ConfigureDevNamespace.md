@@ -31,7 +31,7 @@ Developer Namespace
 kubectl label namespaces ${YOUR_NAMESPACE} apps.tanzu.vmware.com/tap-ns=""
 kubectl annotate ns ${YOUR_NAMESPACE} secretgen.carvel.dev/excluded-from-wildcard-matching-
 export ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
-kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/iamrole=${ACCOUNT_ID}"
+kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/iamrole=${ACCOUNT_ID}
 ```
 
 しばらくまつと、以下のように、先ほど失敗したコマンドが成功するようになります。

@@ -98,7 +98,7 @@ kubectl get ksvc
 ![](../media/image27.png)
 
 ```execute
-curl -k https://hello-vehicle-with-db-dynamic.${YOUR_NAMESPACE}.tap.ok-tap.net/vehicles  | jq .
+curl -k https://hello-vehicle-with-db-dynamic.${YOUR_NAMESPACE}.handson.tappoc.lespaulstudioplus.info/vehicles  | jq .
 ```
 
 ![テキスト
