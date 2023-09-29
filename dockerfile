@@ -37,7 +37,8 @@ RUN sudo apt-get update && sudo apt-get install --no-install-recommends -y \
     curl \
     unzip \
     wget  \
-    golang
+    golang \
+    tcpdump
 
 # Liberica JDK
 ENV JDK_VERSION=17.0.7+7
@@ -84,6 +85,13 @@ RUN wget -q -O kubectl "https://storage.googleapis.com/kubernetes-release/releas
     sudo install kubectl /usr/local/bin/ && \
     rm -f kubectl*
 
+# Helm
+ENV HELM_VERSION 3.13.0
+RUN wget https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
+    tar -zxvf helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
+    mv linux-amd64/helm /usr/local/bin/helm && \
+    rm -f linux-amd64/helm
+
 # Carvel
 RUN wget -O- https://carvel.dev/install.sh | bash
 
@@ -99,6 +107,12 @@ ENV PIVNET_VERSION 3.0.1
 RUN wget -q -O pivnet https://github.com/pivotal-cf/pivnet-cli/releases/download/v${PIVNET_VERSION}/pivnet-linux-amd64-${PIVNET_VERSION} && \
     sudo install pivnet /usr/local/bin/ && \
     rm -f pivnet*
+
+# AWS
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    sudo ./aws/install && \
+    rm -rf aws*
 
 RUN kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null && \
     tanzu completion bash | sudo tee /etc/bash_completion.d/tanzu > /dev/null && \
