@@ -7,6 +7,7 @@ do
  if [[ -n $YOUR_NAMESPACE && -n $PREFIX ]]
  then
   aws ecr create-repository --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}
+  aws ecr create-repository --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}-bundle
  fi
 done
 ```
