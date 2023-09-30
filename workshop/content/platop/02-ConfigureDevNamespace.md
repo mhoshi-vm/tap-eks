@@ -18,11 +18,18 @@ kubectl get secret registries-credentials
 kubectl get pipeline
 kubectl get scanpolicy
 ```
+
 以下のように現状は何も存在しないこと("No resource found")
 になっていることを確認してください。
 
 ![A black screen with white text Description automatically generated
 with low confidence](../media/image3.png)
+
+サービスアカウントのIRSAの設定も確認します。以下のコマンドが出力がないことをご確認ください。
+
+```execute
+kubectl get sa default -o jsonpath='{.metadata.annotations.eks\.amazonaws\.com/role-arn}' 
+```
 
 Developer Namespace
 を有効にしてききます。以下のコマンド実行してください。
@@ -30,8 +37,6 @@ Developer Namespace
 ```execute
 kubectl label namespaces ${YOUR_NAMESPACE} apps.tanzu.vmware.com/tap-ns=""
 kubectl annotate ns ${YOUR_NAMESPACE} secretgen.carvel.dev/excluded-from-wildcard-matching-
-export ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
-kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/iamrole=${ACCOUNT_ID}
 ```
 
 しばらくまつと、以下のように、先ほど失敗したコマンドが成功するようになります。
@@ -40,6 +45,12 @@ kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/iamrole=${ACC
 kubectl get secret registries-credentials
 kubectl get pipeline
 kubectl get scanpolicy
+```
+
+サービスアカウントのIRSAの設定も確認します。IAM Roleが出現することを確認してください。
+
+```execute
+kubectl get sa default -o jsonpath='{.metadata.annotations.eks\.amazonaws\.com/role-arn}' 
 ```
 
 

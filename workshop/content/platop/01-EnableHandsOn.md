@@ -26,12 +26,12 @@ export YOUR_NAMESPACE=`kubectl config view --minify -o jsonpath='{..namespace}'`
 
 ```execute
 export PREFIX="tappoc/workloads"
-for i in hello-nodejs hello-nodejs-test-scan hello-vehicle hello-vehicle-with-db
+for i in hello-nodejs hello-nodejs-test-scan hello-vehicle hello-vehicle-with-db hello-vehicle-with-db-dynamic
 do 
  if [[ -n $YOUR_NAMESPACE && -n $PREFIX ]]
  then
-  aws ecr create-repository --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}
-  aws ecr create-repository --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}-bundle
+  aws ecr create-repository --region ap-northeast-1 --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}
+  aws ecr create-repository --region ap-northeast-1 --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}-bundle
  fi
 done
 ```

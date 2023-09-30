@@ -65,9 +65,4 @@ curl -k https://hello-nodejs-test-scan.${YOUR_NAMESPACE}.handson.tappoc.lespauls
 
 ![](../media/image7.png)
 
-サンプルアプリケーションのデプロイは以上ですが、以下のコマンドなどを行いながら、ワークロードを確認してください。
-
--   tanzu apps workload get \<対象のワークロード\>
--   TAP GUI での比較
-
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション自動的に生成された説明](../media/image8.png)
+サンプルアプリケーションのデプロイは以上です。

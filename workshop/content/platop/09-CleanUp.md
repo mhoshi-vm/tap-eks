@@ -26,8 +26,8 @@ for i in hello-nodejs hello-nodejs-test-scan hello-vehicle hello-vehicle-with-db
 do 
  if [[ -n $YOUR_NAMESPACE && -n $PREFIX ]]
  then
-  aws ecr delete-repository --force --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}
-  aws ecr delete-repository --force --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}-bundle
+  aws ecr delete-repository --force --region ap-northeast-1 --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}
+  aws ecr delete-repository --force --region ap-northeast-1 --repository-name $PREFIX/${i}-${YOUR_NAMESPACE}-bundle
  fi
 done
 ```

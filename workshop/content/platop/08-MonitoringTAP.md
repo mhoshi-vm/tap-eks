@@ -38,6 +38,6 @@ helm upgrade --install tap-monitoring prometheus-community/kube-prometheus-stack
 
 しばらく待機のち、以下のURLにログインをします。
 
-https://grafana.handson.tappoc.lespaulstudioplus.info
+https://prometheus.handson.tappoc.lespaulstudioplus.info
 
 講師より操作を案内します。

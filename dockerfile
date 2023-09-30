@@ -37,8 +37,7 @@ RUN sudo apt-get update && sudo apt-get install --no-install-recommends -y \
     curl \
     unzip \
     wget  \
-    golang \
-    tcpdump
+    golang
 
 # Liberica JDK
 ENV JDK_VERSION=17.0.7+7
