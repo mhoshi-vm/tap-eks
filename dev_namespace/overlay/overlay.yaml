@@ -35,9 +35,9 @@ spec:
       - name: test
         #@ image = "composer:latest"
         #@ if hasattr(data.values.php, "test_image"):
-          #@ image = #@ data.values.php.test_image
-        #@ end
+        #@ image = data.values.php.test_image
         image: #@ image
+        #@ end
         resources: {}
         script: |-
           set -ex
