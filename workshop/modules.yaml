@@ -23,7 +23,7 @@ modules:
   platop/07-DynamicServiceProvision:
     name: (全) Service Toolkit 動的プロビジョン機能の利用
     exit_sign: 次のコンテンツ
-  platop/08-MonitoringTAP:
+  platop/08-MonitoringTap:
     name: (個) TAP のモニタリング方法
     exit_sign: 次のコンテンツ
   platop/09-CleanUp:
