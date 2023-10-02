@@ -32,4 +32,16 @@ do
 done
 ```
 
+DB のクレームを削除します。
+
+```execute
+tanzu service class-claim delete ${YOUR_NAMESPACE}-claim -y
+```
+
+リソースクレームの削除します。
+
+```execute
+tanzu service resource-claim delete ${YOUR_NAMESPACE}-claim -y
+```
+
 以上で Platform Operator 編を終了します。

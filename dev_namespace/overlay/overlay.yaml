@@ -2,8 +2,6 @@
 #@ load("@ytt:overlay", "overlay")
 
 ---
-#@ if hasattr(data.values, "python"):
-#@ if data.values.python == "true":
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
@@ -17,6 +15,8 @@ spec:
   - name: source-revision
     type: string
   tasks:
+  #@ if hasattr(data.values, "php"):
+    #@ if data.values.php.enabled == "true":
   - name: test-coverage
     params:
     - name: source-url
@@ -33,11 +33,11 @@ spec:
       spec: null
       steps:
       - name: test
-        #@ if hasattr(data.values, "python_test_image"):
-        image: #@ data.values.python_test_image
-        #@ else:
-        image: okddemo.azurecr.io/python:latest
+        #@ image = "composer:latest"
+        #@ if hasattr(data.values.php, "test_image"):
+          #@ image = #@ data.values.php.test_image
         #@ end
+        image: #@ image
         resources: {}
         script: |-
           set -ex
@@ -47,36 +47,18 @@ spec:
           export PATH=$HOME/.local/bin:$PATH
 
           wget -qO- $(params.source-url) | tar xvz -m
-          pip install -r requirements.txt --user
-          pip show pytest || {
-            echo "###\nWarning: Pytest is missing in your requirements\n###";
-            pip install pytest --user
-          }
-          pip show coverage || {
-            echo "###\nWarning: Coverage is missing in your requirements\n###";
-            pip install coverage --user
-          }
-          pytest
-          coverage run -m pytest .
-          coverage report -m
-#@ end
-#@ else:
-apiVersion: tekton.dev/v1beta1
-kind: Pipeline
-metadata:
-  name: developer-defined-tekton-pipeline
-  labels:
-    apps.tanzu.vmware.com/pipeline: test
-spec:
-  tasks:
-    - name: test
-      taskSpec:
-        steps:
-          - name: test
-            image: ghcr.io/openzipkin/alpine:3.18.0
-            script: |-
-              echo hello
-#@ end
+          composer install
+          ./vendor/bin/phpunit
+    #@ end
+  #@ else:
+  - name: test
+    taskSpec:
+      steps:
+        - name: test
+          image: ghcr.io/openzipkin/alpine:3.18.0
+          script: |-
+            echo hello
+  #@ end
 ---
 apiVersion: scanning.apps.tanzu.vmware.com/v1beta1
 kind: ScanPolicy

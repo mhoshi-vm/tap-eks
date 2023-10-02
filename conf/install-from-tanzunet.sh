@@ -13,5 +13,5 @@ if [ "${TANZUNET_TOKEN}" != "" ]; then
        code-server --install-extension ${vsix}
    done
    rm -f *.vsix
-   tanzu plugin install --group vmware-tap/default:${TAP_VERSION}
+   tanzu plugin install --group vmware-tap/default:v${TAP_VERSION}
 fi

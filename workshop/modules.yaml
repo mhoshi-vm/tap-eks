@@ -26,7 +26,7 @@ modules:
   platop/08-MonitoringTAP:
     name: (個) TAP のモニタリング方法
     exit_sign: 次のコンテンツ
-  platop/09-Day1-CleanUp:
+  platop/09-CleanUp:
     name: (全) クリーンアップ
     exit_sign: 次のコンテンツ
   appop/section:
