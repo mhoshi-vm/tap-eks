@@ -47,9 +47,6 @@ modules:
   appop/13-TestScan:
     name: (全) テストとスキャニング
     exit_sign: 次のコンテンツ
-  appop/14-ServiceBindingsSupported:
-    name: (全) Redisを利用したサービスバインディング
-    exit_sign: 次のコンテンツ
   appop/15-ServiceBindingsCustom:
     name: (全) カスタムサービスを利用したサービスバインディング
     exit_sign: 次のコンテンツ
