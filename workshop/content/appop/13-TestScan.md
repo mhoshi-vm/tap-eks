@@ -40,17 +40,13 @@ spec:
 以下のコマンド実行してください。
 
 ```execute
-kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/python="true"
+kubectl label namespaces ${YOUR_NAMESPACE} handson.tanzu.japan.com/php.enabled="true"
 ```
 
-Namespaceに特定のラベルを設定することにより、Developer Namespace が python
+Namespaceに特定のラベルを設定することにより、Developer Namespace が php
 の値を識別して、それ専用のパイプラインが登録されます。今回の環境では以下の該当行が適用されます。
 
-<<<<<<< HEAD
-https://github.com/mhoshi-vm/tap-openshift-jp/blob/main/dev_namespace/overlay.yaml#L7-L57
-=======
-https://github.com/mhoshi-vm/tap-eks-jp/blob/main/dev_namespace/overlay.yaml#L7-L57
->>>>>>> zdc
+https://github.com/mhoshi-vm/tap-eks/blob/main/dev_namespace/overlay/overlay.yaml#L7-L60
 
 実行後(最大10分)まち、以下のコマンドを実行してください。
 
@@ -83,7 +79,7 @@ spec:
         type: string
       spec: null
       steps:
-      - image: okddemo.azurecr.io/python:latest
+      - image: composer:latest
         name: test
         resources: {}
         script: |-
@@ -94,18 +90,8 @@ spec:
           export PATH=$HOME/.local/bin:$PATH
 
           wget -qO- $(params.source-url) | tar xvz -m
-          pip install -r requirements.txt --user
-          pip show pytest || {
-            echo "###\nWarning: Pytest is missing in your requirements\n###";
-            pip install pytest --user
-          }
-          pip show coverage || {
-            echo "###\nWarning: Coverage is missing in your requirements\n###";
-            pip install coverage --user
-          }
-          pytest
-          coverage run -m pytest .
-          coverage report -m
+          composer install
+          ./vendor/bin/phpunit
 ```
 
 
@@ -113,23 +99,17 @@ spec:
 
 Open Folder から以下のフォルダーを開きます。
 
--   /home/eduk8s/tap-python-recipies/python-simple-func-w-test/
+-   /home/eduk8s/tap-php-recipies/php-simple-unit-test/
 
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
-自動的に生成された説明](../media/image47.png)
+![img_8.png](img_8.png)
 
-Workload.yaml を開き、` apps.tanzu.vmware.com/has-tests: true`
+workload.yaml を開き、` apps.tanzu.vmware.com/has-tests: true`
 が指定されていることを確認します。これによりテストおよびスキャンを実行するSupplyChainが実行されます。
 
 右クリック "Tanzu Apply Workload" を実行します。\
 2-3分後アプリケーションのデプロイが完了したら、TAP-GUIにログインを行います。
 
-![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション
-自動的に生成された説明](../media/image48.png)
+![img_9.png](img_9.png)
 
-この中でのpy-func-test を確認してください。なお、元となるソースコードについても以下の特徴がある点をご確認ください。
-
--   関数に対してのみテストを書くため、テストがシンプルで書きやすい
--   Requirments.txt に自由に依存関係を含めることができる
-
+この中での php-simple-unit-test を確認してください。
 テスト&スキャンのスクリプトは以上です。

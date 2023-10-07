@@ -48,7 +48,7 @@ tanzu cli とTAP GUI
 tanzu accelerator list
 ```
 
-tap-python-recipies が登録されているのを確認できます。
+tap-php-recipies が登録されているのを確認できます。
 
 ![テキスト
 自動的に生成された説明](../media/image87.png)

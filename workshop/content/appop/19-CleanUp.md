@@ -22,7 +22,7 @@ kubectl delete workload `kubectl get workload -o=jsonpath={.items[*].metadata.na
 
 ```execute
 export PREFIX="tappoc/workloads"
-for i in hello-nodejs hello-nodejs-test-scan hello-vehicle hello-vehicle-with-db
+for i in php-simple php-simple-httpd php-simple-unit-test php-simple-w-supported-bindings php-simple-w-custom-bindings php-simple-httpd-live
 do 
  if [[ -n $YOUR_NAMESPACE && -n $PREFIX ]]
  then
@@ -35,13 +35,8 @@ done
 DB のクレームを削除します。
 
 ```execute
-tanzu service class-claim delete ${YOUR_NAMESPACE}-claim -y
-```
-
-リソースクレームの削除します。
-
-```execute
-tanzu service resource-claim delete ${YOUR_NAMESPACE}-claim -y
+tanzu service class-claim delete postgres-claim -y
+tanzu service class-claim delete redis-claim -y
 ```
 
 以上で Platform Operator 編を終了します。

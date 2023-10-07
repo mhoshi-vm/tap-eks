@@ -74,19 +74,4 @@ Developer Namespace
 Application Platform 1.4 から提供する Namespace Provisioner
 機能とは](https://blogs.vmware.com/vmware-japan/2023/03/namespace-provision.html)
 
-最後に、For App Operator編で利用することとなる、開発者用のKubeconfig
-ファイルを生成します。
-
-```execute
-TOKEN=`kubectl get secret app-editor-token -o jsonpath='{.data.token}' | base64 --d`
-cp ~/.kube/config /opt/code-server/kubeconfig
-export KUBECONFIG=/opt/code-server/kubeconfig
-kubectl config set-credentials app-editor --token=$TOKEN
-kubectl config set-context --current --user=app-editor
-unset KUBECONFIG
-```
-
-**⚠️　この手順で作成した Kubeconfig
-はサービスアカウントをもとに作成しましたが、[本来はOIDCユーザーなど認証がともなったユーザーで登録するべき](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-authn-authz-pinniped-install-guide.html)です。⚠️**
-
 Developer　ネームスペースの作成は以上です。
