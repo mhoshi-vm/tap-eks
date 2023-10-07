@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: php-tap-eks-w01-s003
+  description: php-tap-eks-w01-s003
+  tags:
+    - tanzu
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=php-tap-eks-w01-s003'
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default-team
