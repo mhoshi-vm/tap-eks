@@ -13,3 +13,16 @@ modules:
     -  platop/08-MonitoringTap
     -  platop/09-CleanUp
     -  appop/section
+    -  appop/09-PrepareIDE
+    -  appop/10-PHPLiveUpdatePrep
+    -  appop/11-SimpleWeb
+    -  appop/12-SimpleHttpd
+    -  appop/13-TestScan
+    -  appop/14-ServiceBindingsSupported
+    -  appop/15-ServiceBindingsCustom
+    -  appop/16-LiveUpdate
+    -  appop/17-ReviewTapGui
+    -  appop/18-AppAccelerator
+    -  appop/19-CleanUp
+    -  appop/20-Explore
+

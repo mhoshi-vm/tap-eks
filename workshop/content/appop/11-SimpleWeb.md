@@ -9,7 +9,7 @@ generated](../media/image40.png)
 
 左ペインで右クリックを行い、"Tanzu Apply Workload" を選択します。
 
-![img.png](img.png)!
+![img.png](../media/img.png)!
 
 ワークロードがデプロイされるまで、2-3分待ちます。
 
@@ -18,11 +18,11 @@ generated](../media/image40.png)
 ```
 kubectl get ksvc
 ```
-![img_1.png](img_1.png)
+![img_1.png](../media/img_1.png)
 
 webブラウザ経由で上記の URL を入力し、サービス内容を確認します。
 
-![img_2.png](img_2.png)
+![img_2.png](../media/img_2.png)
 
 アプリケーションの動作確認としては以上です。まずはシンプルなデプロイを確認しました。
 

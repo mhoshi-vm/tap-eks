@@ -13,22 +13,16 @@ tanzu accelerator list
 ```
 
 
-![グラフィカル ユーザー インターフェイス, テキスト
-自動的に生成された説明](../media/image79.png)
-
 手動で新しいApplication Accelerators
 テンプレートを登録します。Github 上の Repositoryを使って App Accelerator に登録します。
 
 ```execute
-GIT_REPOSITORY_URL=https://github.com/mhoshi-vm/tap-python-recipies.git
+GIT_REPOSITORY_URL=https://github.com/mhoshi-vm/tap-php-recipes
 GIT_REPOSITORY_BRANCH=main
-tanzu accelerator create tap-python-recipies --git-repository ${GIT_REPOSITORY_URL} --git-branch ${GIT_REPOSITORY_BRANCH}
+tanzu accelerator create tap-php-recipies --git-repository ${GIT_REPOSITORY_URL} --git-branch ${GIT_REPOSITORY_BRANCH}
 ```
 
-
-![](../media/image86.png)
-
-<https://github.com/mhoshi-vm/tap-python-recipies/accelerator.yaml>
+<https://github.com/mhoshi-vm/tap-php-recipies/accelerator.yaml>
 
 上記のファイルがApplication Accelerator を登録するための YAML
 ファイルです。以下のような項目から構成されています。
@@ -50,30 +44,20 @@ tanzu accelerator list
 
 tap-php-recipies が登録されているのを確認できます。
 
-![テキスト
-自動的に生成された説明](../media/image87.png)
+![img_16.png](../media/img_16.png)
 
-TAP GUI からも新規で登録した tap-python-recipiesを確認します。
+TAP GUI からも新規で登録した tap-php-recipiesを確認します。
 
-![](../media/2023-06-06T04-25-26.png)
+![img_17.png](../media/img_17.png)
 
-CHOOSE ボタンをクリックし、Generate Accelerators 画面でChoose Python
-Framework \* ドロップダウンリストを展開します。
+CHOOSE ボタンをクリックし、Generate Accelerators 画面でChoose php
+Framework ドロップダウンリストを展開します。
 
-![](../media/2023-06-06T04-28-12.png)
-
-”GitOps モードのデプロイ" 選択します。また、Branch-name \* と
-Owner-name \* を下記のように変更します。
-
-![](../media/2023-06-06T04-29-34.png)
+![img_18.png](../media/img_18.png)
 
 NEXT ボタン -\> GENERATE ACCELERATOR ボタンを選択します。
-EXPLORE ZIP FILE を選択し、生成されたテンプレートの中身を確認します。
-gitops_repository_owner と gitops_branch
-が反映されているのを確認できます。
-
-![グラフィカル ユーザー インターフェイス, アプリケーション, メール
-自動的に生成された説明](../media/image92.png)
+EXPLORE ZIP FILE を選択し、生成されたテンプレートの中身を確認します。TAP GUIに認識が必要なラベル名などが変わったことを確認します。
+![img_19.png](../media/img_19.png)
 
 このように、標準テンプレートを用意し、Application
 Accelerator に登録することで、基盤に関わるパラメーターを意識することなく、開発に着手できます。

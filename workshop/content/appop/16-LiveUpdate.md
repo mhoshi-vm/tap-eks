@@ -18,7 +18,7 @@ Folder から以下のディレクトリーを開きます。
 
 左ペインより"Tanzu Live Update Start" を実行します。
 
-![img_10.png](img_10.png)
+![img_10.png](../media/img_10.png)
 
 同じくデプロイが完了したら、Hello Worldが表示されることを確認します。
 

@@ -36,7 +36,6 @@ DB のクレームを削除します。
 
 ```execute
 tanzu service class-claim delete postgres-claim -y
-tanzu service class-claim delete redis-claim -y
 ```
 
 以上で Platform Operator 編を終了します。

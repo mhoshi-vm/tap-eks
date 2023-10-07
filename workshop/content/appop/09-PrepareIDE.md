@@ -55,7 +55,6 @@ done
 
 ```execute
 tanzu service class-claim create postgres-claim --class postgresql-unmanaged -p storageGB=5
-tanzu service class-claim create redis-claim --class redis-unmanaged
 ```
 
 最後に、For App Operator編で利用することとなる、開発者用のKubeconfig

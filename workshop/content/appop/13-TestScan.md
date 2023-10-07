@@ -101,7 +101,7 @@ Open Folder から以下のフォルダーを開きます。
 
 -   /home/eduk8s/tap-php-recipies/php-simple-unit-test/
 
-![img_8.png](img_8.png)
+![img_8.png](../media/img_8.png)
 
 workload.yaml を開き、` apps.tanzu.vmware.com/has-tests: true`
 が指定されていることを確認します。これによりテストおよびスキャンを実行するSupplyChainが実行されます。
@@ -109,7 +109,7 @@ workload.yaml を開き、` apps.tanzu.vmware.com/has-tests: true`
 右クリック "Tanzu Apply Workload" を実行します。\
 2-3分後アプリケーションのデプロイが完了したら、TAP-GUIにログインを行います。
 
-![img_9.png](img_9.png)
+![img_9.png](../media/img_9.png)
 
 この中での php-simple-unit-test を確認してください。
 テスト&スキャンのスクリプトは以上です。

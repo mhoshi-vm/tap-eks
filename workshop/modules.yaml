@@ -32,3 +32,40 @@ modules:
   appop/section:
     name: For App Operator 編
     exit_sign: 次のコンテンツ
+  appop/09-PrepareIDE:
+    name: (全) IDE作業環境の有効化
+    exit_sign: 次のコンテンツ    
+  appop/10-PHPLiveUpdatePrep:
+    name: (個) PHPハンズオンワークアラウンド
+    exit_sign: 次のコンテンツ
+  appop/11-SimpleWeb:
+    name: (全) シンプルなPHPアプリ
+    exit_sign: 次のコンテンツ
+  appop/12-SimpleHttpd:
+    name: (全) シンプルなPHP+HTTPDアプリ
+    exit_sign: 次のコンテンツ
+  appop/13-TestScan:
+    name: (全) テストとスキャニング
+    exit_sign: 次のコンテンツ
+  appop/14-ServiceBindingsSupported:
+    name: (全) Redisを利用したサービスバインディング
+    exit_sign: 次のコンテンツ
+  appop/15-ServiceBindingsCustom:
+    name: (全) カスタムサービスを利用したサービスバインディング
+    exit_sign: 次のコンテンツ
+  appop/16-LiveUpdate:
+    name: (全) LiveUpdate
+    exit_sign: 次のコンテンツ
+  appop/17-ReviewTapGui:
+    name: (全) TAP GUIのレビュー
+    exit_sign: 次のコンテンツ
+  appop/18-AppAccelerator:
+    name: (全) App Accelerator の登録
+    exit_sign: 次のコンテンツ
+  appop/19-CleanUp:
+    name: (全) クリーンアップ
+    exit_sign: 次のコンテンツ
+  appop/20-Explore:
+    name: 宣伝
+    exit_sign: 次のコンテンツ
+

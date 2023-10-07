@@ -11,7 +11,7 @@ Editor より、Open Folder を選択し、以下のフォルダーを選択し�
 
 展開後、同じくTanzu Apply Workload
 よりデプロイを展開します。デプロイが完了するまで1-2分待ったのち以下のコマンドで動作を確認します。
-![img_3.png](img_3.png)
+![img_3.png](../media/img_3.png)
 
 起動が完了したら以下のコマンドでURLを確認してブラウザでログインします。
 
@@ -27,7 +27,7 @@ curl -i $URL
 
 正常に応答が返ってきた場合、ヘッダーに注目して `X-HandsOn "original-httpd-value"` が含まれていることを確認してください。
 
-![img_7.png](img_7.png)
+![img_7.png](../media/img_7.png)
 
 アプリケーションのデプロイとしては、以上ですが、ソースコードを比較します。
 

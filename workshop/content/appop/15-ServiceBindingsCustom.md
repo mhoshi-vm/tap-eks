@@ -6,8 +6,6 @@ VScode ServerのOpen Folder より以下を開いてください。
 
 -   /home/eduk8s/tap-php-recipies/php-simple-w-custom-bindings/
 
-![Graphical user interface, application Description automatically
-generated](../media/image52.png)
 
 Editor のターミナルを開いて以下を確認してください。
 まず以下のコマンドを実行します。
@@ -38,7 +36,7 @@ kubectl get ksvc
 すると以下のとおり、接続先の Postgres のバージョンが表示されていることを確認します。
 
 
-![img_11.png](img_11.png)
+![img_11.png](../media/img_11.png)
 
 
 index.php のコードをみてみます。以下の特徴をみています。
