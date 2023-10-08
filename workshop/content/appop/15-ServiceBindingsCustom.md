@@ -24,7 +24,7 @@ kubectl get secrets
 
 
 ```
-tanzu service class-claim show postgres-claim
+tanzu service class-claim get postgres-claim
 ```
 
 左ペインより、"Tanzu Apply Workload"
@@ -37,6 +37,13 @@ kubectl get ksvc
 
 
 ![img_11.png](../media/img_11.png)
+
+Terminal より以下のコマンドを実行します。すると認証情報がコンテナ内部に保管されていることがわかります。
+
+```execute
+kubectl exec -it `kubectl get po -l serving.knative.dev/configuration=php-simple-w-custom-bindings -o=jsonpath='{.items[].metadata.name}'` -- ls /bindings/postgres/
+```
+
 
 
 index.php のコードをみてみます。以下の特徴をみています。

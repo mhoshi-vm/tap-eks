@@ -26,7 +26,7 @@ kubectl annotate ns ${YOUR_NAMESPACE} secretgen.carvel.dev/excluded-from-wildcar
 
 ハンズオン用のデモアプリケーションをダウンロードします。
 
-```exeute
+```execute
 git clone https://github.com/mhoshi-vm/tap-php-recipes
 ```
 
@@ -51,7 +51,7 @@ do
 done
 ```
 
-後の手順に必要となる Postgres と Redis のインスタンスを作成します。
+後の手順に必要となる Postgres のインスタンスを作成します。
 
 ```execute
 tanzu service class-claim create postgres-claim --class postgresql-unmanaged -p storageGB=5

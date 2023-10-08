@@ -38,4 +38,10 @@ DB のクレームを削除します。
 tanzu service class-claim delete postgres-claim -y
 ```
 
+Redis の構成情報も削除します。
+
+```execute
+kubectl delete -f ~/tap-php-recipes/php-simple-w-supported-bindings/redis.yaml 
+```
+
 以上で Platform Operator 編を終了します。

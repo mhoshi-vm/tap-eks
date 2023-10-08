@@ -22,7 +22,7 @@ kubectl get ksvc
 表示されたURLに対して以下のコマンドを実行します。
 
 ```
-curl -i $URL
+curl -i -k $URL
 ```
 
 正常に応答が返ってきた場合、ヘッダーに注目して `X-HandsOn "original-httpd-value"` が含まれていることを確認してください。

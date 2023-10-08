@@ -39,7 +39,7 @@ kubectl get ksvc
 表示されたURLに対して以下のコマンドを実行します。
 
 ```
-curl -i $URL
+curl -i -k $URL
 ```
 
 

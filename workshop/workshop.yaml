@@ -18,6 +18,7 @@ modules:
     -  appop/11-SimpleWeb
     -  appop/12-SimpleHttpd
     -  appop/13-TestScan
+    -  appop/14-ServiceBindingsSupported
     -  appop/15-ServiceBindingsCustom
     -  appop/16-LiveUpdate
     -  appop/17-ReviewTapGui

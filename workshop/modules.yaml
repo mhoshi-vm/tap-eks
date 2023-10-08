@@ -47,6 +47,9 @@ modules:
   appop/13-TestScan:
     name: (全) テストとスキャニング
     exit_sign: 次のコンテンツ
+  appop/14-ServiceBindingsSupported:
+    name: (全) サービスバインディングを利用したPHPのセッションの自動構成
+    exit_sign: 次のコンテンツ
   appop/15-ServiceBindingsCustom:
     name: (全) カスタムサービスを利用したサービスバインディング
     exit_sign: 次のコンテンツ
@@ -57,7 +60,7 @@ modules:
     name: (全) TAP GUIのレビュー
     exit_sign: 次のコンテンツ
   appop/18-AppAccelerator:
-    name: (全) App Accelerator の登録
+    name: (個) App Accelerator の登録
     exit_sign: 次のコンテンツ
   appop/19-CleanUp:
     name: (全) クリーンアップ
