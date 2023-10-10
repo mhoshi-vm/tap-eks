@@ -7,7 +7,7 @@ https://paketo.io/docs/howto/php/#select-a-web-server
 
 Editor より、Open Folder を選択し、以下のフォルダーを選択します。
 
--   /home/eduk8s/tap-python-recipies/python-simple-httpd
+-   /home/eduk8s/tap-php-recipies/php-simple-httpd
 
 展開後、同じくTanzu Apply Workload
 よりデプロイを展開します。デプロイが完了するまで1-2分待ったのち以下のコマンドで動作を確認します。

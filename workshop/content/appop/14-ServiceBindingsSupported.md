@@ -38,10 +38,6 @@ Open Folder から以下のディレクトリーを開きます。
 
 -   /home/eduk8s/tap-php-recipies/php-simple-rest-w-supported-bindings
 
-![Graphical user interface, text, application Description automatically
-generated](../media/image49.png)
-
-
 左ペインより、"Tanzu Apply Workload" を実行します。
 デプロイ後以下のコマンドで、たちがったインスタンス数を確認します。(通常このタイミングでは、3つのインスタンスが起動している状態になるはず。)
 

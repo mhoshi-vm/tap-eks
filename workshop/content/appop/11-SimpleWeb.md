@@ -4,7 +4,7 @@
 ![Graphical user interface, application Description automatically
 generated](../media/image40.png)
 
-/home/eduk8s/tap-python-recipies/php-simple
+/home/eduk8s/tap-php-recipies/php-simple
 を入力し、フォルダーを起動します。
 
 左ペインで右クリックを行い、"Tanzu Apply Workload" を選択します。
